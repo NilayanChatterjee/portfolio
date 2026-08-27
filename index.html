@@ -63,6 +63,17 @@
       filter: blur(0);
     }
 
+    /* Auto-Color Transition for Photo on Section Scroll */
+    .portrait-photo {
+      filter: grayscale(100%) contrast(1.05);
+      transition: filter 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s ease;
+      will-change: filter, transform;
+    }
+
+    #profile.in-focus .portrait-photo {
+      filter: grayscale(0%) contrast(1);
+    }
+
     /* Card Micro-interactions */
     .card-float {
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
@@ -89,7 +100,7 @@
 
     /* When a milestone is ACTIVE / EXPANDED */
     .road-symbol-card.expanded {
-      width: 480px !important;
+      width: 530px !important;
       opacity: 1 !important;
       transform: scale(1.02) !important;
       z-index: 40 !important;
@@ -107,6 +118,33 @@
       opacity: 0.85 !important;
       filter: grayscale(0);
       transform: scale(0.9) !important;
+    }
+
+    /* Navigation Arrows beside the card */
+    .nav-arrow-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      background: #F9F8F5;
+      border: 1px solid #E5DFD7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1A1D1C;
+      font-weight: bold;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .nav-arrow-btn:hover {
+      background: #1A1D1C;
+      color: #F9F8F5;
+      border-color: #1A1D1C;
+      transform: scale(1.08);
+    }
+    .nav-arrow-btn:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+      pointer-events: none;
     }
 
     /* Bouncing Scroll Cue */
@@ -170,7 +208,7 @@
     <section id="profile" class="focus-section py-24 sm:py-32 border-b border-sandBorder">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
         
-        <!-- Portrait Image with Auto-Fallback -->
+        <!-- Portrait Image with Scroll-Triggered Color Switch -->
         <div class="md:col-span-5 flex justify-center md:justify-start">
           <div class="relative group">
             <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border border-sandBorder shadow-sm bg-warmCard relative flex items-center justify-center">
@@ -179,7 +217,7 @@
                    src="profile.jpg" 
                    alt="Nilayan Chatterjee" 
                    onerror="handleImageFallback(this)"
-                   class="w-full h-full object-cover object-center filter grayscale contrast-[1.05] group-hover:grayscale-0 transition-all duration-700">
+                   class="portrait-photo w-full h-full object-cover object-center">
 
               <div id="profile-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-warmCard">
                 <div class="w-20 h-20 rounded-full bg-sandBorder flex items-center justify-center mb-3 text-2xl font-extrabold text-darkCharcoal">
@@ -245,7 +283,7 @@
       </div>
     </section>
 
-    <!-- ================= SECTION 2: ROAD HIGHWAY WITH SYMBOLS + LOGOS IN EXPANDED VIEW ================= -->
+    <!-- ================= SECTION 2: ROAD HIGHWAY WITH EXPANDED NAV ARROWS ================= -->
     <section id="journey" class="focus-section py-24 border-b border-sandBorder">
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8">
         <div>
@@ -253,7 +291,7 @@
           <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight mt-1">Interactive Milestone Journey</h2>
         </div>
         <span class="text-xs text-sageAccent font-mono mt-2 sm:mt-0 font-bold bg-sageAccent/10 px-3 py-1 rounded-full border border-sageAccent/20">
-          💡 Click any symbol on the road to view logo & details
+          💡 Click symbols & use &larr; / &rarr; arrows to navigate
         </span>
       </div>
 
@@ -266,8 +304,8 @@
             <div class="w-full border-t-2 border-dashed border-[#F9F8F5]/30"></div>
           </div>
 
-          <!-- Symbol 1: B.Tech (Book / Grad Cap) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer">
+          <!-- Symbol 1: B.Tech (Index 0) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="0">
             <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -281,38 +319,48 @@
                 <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2017 – 2021</div>
               </div>
 
-              <!-- Expanded Detailed Content with College Logo -->
+              <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                  <!-- Techno Main Salt Lake Logo Badge -->
-                  <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#003366] text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
-                      TMSL
+                <div class="flex items-center gap-3">
+                  <!-- Prev Arrow (Disabled on first stop) -->
+                  <button class="nav-arrow-btn" disabled aria-label="Previous Stop">&#8592;</button>
+
+                  <!-- Main Content Card -->
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#003366] text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
+                          TMSL
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 01 // Academics</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Techno Main Salt Lake</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
                     </div>
-                    <div>
-                      <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 01 // Academics</span>
-                      <h4 class="text-sm font-extrabold text-darkCharcoal">Techno Main Salt Lake</h4>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">B.Tech in Electronics & Communication &bull; 2017–2021</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Built deep foundations in computational logic, analytical computation, and system architectures. Developed problem-solving rigor that anchors modern data governance and enterprise software delivery.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Digital Logic</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Systems Design</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Computation</span>
                     </div>
                   </div>
-                  <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                </div>
 
-                <p class="text-xs font-semibold text-sageAccent mb-1">B.Tech in Electronics & Communication &bull; 2017–2021</p>
-                <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                  Built deep foundations in computational logic, analytical computation, and system architectures. Developed problem-solving rigor that anchors modern data governance and enterprise software delivery.
-                </p>
-                <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Digital Logic</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Systems Design</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Computation</span>
+                  <!-- Next Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Symbol 2: Cognizant (Laptop / Tech) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer">
+          <!-- Symbol 2: Cognizant (Index 1) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="1">
             <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -326,41 +374,51 @@
                 <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2021 – 2023</div>
               </div>
 
-              <!-- Expanded Detailed Content with Cognizant Logo -->
+              <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                  <!-- Cognizant Official Brand Mark -->
-                  <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#000048] flex items-center justify-center p-1.5 shadow-sm border border-sandBorder flex-shrink-0">
-                      <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
-                        <circle cx="50" cy="50" r="38" stroke="#1F69FF" stroke-width="12"/>
-                        <circle cx="50" cy="50" r="18" fill="#1F69FF"/>
-                      </svg>
+                <div class="flex items-center gap-3">
+                  <!-- Prev Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(0);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <!-- Main Content Card -->
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#000048] flex items-center justify-center p-1.5 shadow-sm border border-sandBorder flex-shrink-0">
+                          <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+                            <circle cx="50" cy="50" r="38" stroke="#1F69FF" stroke-width="12"/>
+                            <circle cx="50" cy="50" r="18" fill="#1F69FF"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 02 // Enterprise Tech</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Cognizant</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
                     </div>
-                    <div>
-                      <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 02 // Enterprise Tech</span>
-                      <h4 class="text-sm font-extrabold text-darkCharcoal">Cognizant</h4>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">Junior Software Engineer &bull; 21 Months (2021–2023)</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Delivered application reliability pipelines, defect triage, and automated incident resolution workflows for tier-1 global insurance clients. Collaborated across developer and operations squads to maintain 99.9% uptime.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Incident Triage</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Root Cause Analysis</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">SLA Governance</span>
                     </div>
                   </div>
-                  <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                </div>
 
-                <p class="text-xs font-semibold text-sageAccent mb-1">Junior Software Engineer &bull; 21 Months (2021–2023)</p>
-                <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                  Delivered application reliability pipelines, defect triage, and automated incident resolution workflows for tier-1 global insurance clients. Collaborated across developer and operations squads to maintain 99.9% uptime.
-                </p>
-                <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Incident Triage</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Root Cause Analysis</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">SLA Governance</span>
+                  <!-- Next Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Symbol 3: GIM Goa Part 1 (Graduation Cap / Strategy) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer">
+          <!-- Symbol 3: GIM Goa Part 1 (Index 2) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="2">
             <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -374,38 +432,48 @@
                 <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2023</div>
               </div>
 
-              <!-- Expanded Detailed Content with GIM Logo -->
+              <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                  <!-- GIM Goa Emblem Badge -->
-                  <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
-                      GIM
+                <div class="flex items-center gap-3">
+                  <!-- Prev Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <!-- Main Content Card -->
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
+                          GIM
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 03 // Leadership</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Goa Institute of Management</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
                     </div>
-                    <div>
-                      <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 03 // Leadership</span>
-                      <h4 class="text-sm font-extrabold text-darkCharcoal">Goa Institute of Management</h4>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Program Onboarding &bull; 2023</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Commenced advanced business management studies specializing in Product Strategy, Operations, and Business Analysis. Explored behavioral financial models and social cost-benefit analysis.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Product Strategy</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Operations Research</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Financial Modeling</span>
                     </div>
                   </div>
-                  <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                </div>
 
-                <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Program Onboarding &bull; 2023</p>
-                <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                  Commenced advanced business management studies specializing in Product Strategy, Operations, and Business Analysis. Explored behavioral financial models and social cost-benefit analysis.
-                </p>
-                <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Product Strategy</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Operations Research</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Financial Modeling</span>
+                  <!-- Next Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Symbol 4: Tally Solutions (Compass / Product Discovery) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer">
+          <!-- Symbol 4: Tally Solutions (Index 3) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="3">
             <div class="bg-[#f5ede3] border-2 border-dashed border-mutedBrown rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -421,38 +489,48 @@
                 <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Summer 2024</div>
               </div>
 
-              <!-- Expanded Detailed Content with Tally Logo -->
+              <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                  <!-- Tally Brand Logo Mark -->
-                  <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#E85D04] text-white flex items-center justify-center font-black text-sm tracking-tighter shadow-sm border border-sandBorder flex-shrink-0">
-                      Tally
+                <div class="flex items-center gap-3">
+                  <!-- Prev Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <!-- Main Content Card -->
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#E85D04] text-white flex items-center justify-center font-black text-sm tracking-tighter shadow-sm border border-sandBorder flex-shrink-0">
+                          Tally
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 04 // Product Pitstop</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Tally Solutions</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
                     </div>
-                    <div>
-                      <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 04 // Product Pitstop</span>
-                      <h4 class="text-sm font-extrabold text-darkCharcoal">Tally Solutions</h4>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">Product Management Intern &bull; Bangalore &bull; Summer 2024</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Led discovery initiatives and user empathy mapping to revamp core document-sharing workflows across accounting user personas. Defined MVP roadmaps and user story hierarchies for engineering handoff.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Persona Research</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">MVP Scoping</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">User Journey Maps</span>
                     </div>
                   </div>
-                  <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                </div>
 
-                <p class="text-xs font-semibold text-sageAccent mb-1">Product Management Intern &bull; Bangalore &bull; Summer 2024</p>
-                <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                  Led discovery initiatives and user empathy mapping to revamp core document-sharing workflows across accounting user personas. Defined MVP roadmaps and user story hierarchies for engineering handoff.
-                </p>
-                <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Persona Research</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">MVP Scoping</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">User Journey Maps</span>
+                  <!-- Next Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Symbol 5: GIM Goa Part 2 (Medal / Graduation) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer">
+          <!-- Symbol 5: GIM Goa Part 2 (Index 4) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="4">
             <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -466,37 +544,48 @@
                 <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2024 – 2025</div>
               </div>
 
-              <!-- Expanded Detailed Content with GIM Logo -->
+              <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                  <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
-                      GIM
+                <div class="flex items-center gap-3">
+                  <!-- Prev Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <!-- Main Content Card -->
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
+                          GIM
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 05 // Executive Degree</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">GIM Goa</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
                     </div>
-                    <div>
-                      <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 05 // Executive Degree</span>
-                      <h4 class="text-sm font-extrabold text-darkCharcoal">GIM Goa</h4>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Graduation (MBA Equivalent) &bull; 2024–2025</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Graduated with core competencies in enterprise systems modeling, agile scrum ceremonies, data modeling (Power BI), and business process re-engineering.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Agile Governance</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Power BI Modeling</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">BPMN Design</span>
                     </div>
                   </div>
-                  <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                </div>
 
-                <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Graduation (MBA Equivalent) &bull; 2024–2025</p>
-                <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                  Graduated with core competencies in enterprise systems modeling, agile scrum ceremonies, data modeling (Power BI), and business process re-engineering.
-                </p>
-                <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Agile Governance</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Power BI Modeling</span>
-                  <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">BPMN Design</span>
+                  <!-- Next Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(5);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Symbol 6: Accenture (Rocket / Leadership Destination) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer">
+          <!-- Symbol 6: Accenture (Index 5) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer" data-index="5">
             <div class="bg-linen border-2 border-sageAccent rounded-2xl p-4 shadow-lg text-center">
               
               <!-- Collapsed Symbol View -->
@@ -512,30 +601,40 @@
                 <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-warmCard px-2 py-0.5 rounded border border-sandBorder">2025 – Present</div>
               </div>
 
-              <!-- Expanded Detailed Content with Accenture Logo -->
+              <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                  <!-- Accenture Official Greater-Than Logo Badge -->
-                  <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#A100FF] text-white flex items-center justify-center font-black text-xl leading-none shadow-sm border border-sandBorder flex-shrink-0">
-                      &gt;
+                <div class="flex items-center gap-3">
+                  <!-- Prev Arrow -->
+                  <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <!-- Main Content Card -->
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#A100FF] text-white flex items-center justify-center font-black text-xl leading-none shadow-sm border border-sandBorder flex-shrink-0">
+                          &gt;
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 06 // Current Role</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Accenture</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-warmCard px-2 py-1 rounded border border-sandBorder">✕ Close</button>
                     </div>
-                    <div>
-                      <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 06 // Current Role</span>
-                      <h4 class="text-sm font-extrabold text-darkCharcoal">Accenture</h4>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">Senior Business Analyst & Scrum Master &bull; 2025–Present</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Leading cross-functional Agile sprint ceremonies, user story refinement, and commerce architectures across AEM and Adobe Commerce. Architected an organizational rule engine that significantly improved requirement compliance and data trust metrics.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Scrum Master</span>
+                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">AEM & Adobe Commerce</span>
+                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Rule Engines</span>
                     </div>
                   </div>
-                  <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-warmCard px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                </div>
 
-                <p class="text-xs font-semibold text-sageAccent mb-1">Senior Business Analyst & Scrum Master &bull; 2025–Present</p>
-                <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                  Leading cross-functional Agile sprint ceremonies, user story refinement, and commerce architectures across AEM and Adobe Commerce. Architected an organizational rule engine that significantly improved requirement compliance and data trust metrics.
-                </p>
-                <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                  <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Scrum Master</span>
-                  <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">AEM & Adobe Commerce</span>
-                  <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Rule Engines</span>
+                  <!-- Next Arrow (Disabled on final stop) -->
+                  <button class="nav-arrow-btn" disabled aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
 
@@ -546,7 +645,7 @@
       </div>
       
       <p class="text-center text-xs text-softOlive font-mono">
-        ← Drag / swipe horizontally &bull; Click any symbol on the road to view full details →
+        ← Drag / swipe horizontally &bull; Use &larr; / &rarr; arrows to travel between stops →
       </p>
     </section>
 
@@ -751,7 +850,7 @@
 
   </main>
 
-  <!-- Script: Milestone Symbol Expand-in-Place & Scroll Focus Trigger -->
+  <!-- Scripts: Milestone Navigation & Scroll Focus Trigger -->
   <script>
     // Image fallback sequence
     function handleImageFallback(img) {
@@ -767,7 +866,7 @@
       }
     }
 
-    // Symbol Expand / Shrink Accordion Functionality
+    // Toggle and expand an individual milestone
     function toggleSymbolMilestone(cardElement) {
       const isAlreadyExpanded = cardElement.classList.contains('expanded');
       const track = document.getElementById('road-track');
@@ -792,6 +891,15 @@
       cardElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
+    // Programmatically navigate to target milestone index with arrows
+    function navigateMilestone(targetIndex) {
+      const allCards = document.querySelectorAll('.road-symbol-card');
+      if (targetIndex >= 0 && targetIndex < allCards.length) {
+        toggleSymbolMilestone(allCards[targetIndex]);
+      }
+    }
+
+    // Reset to collapsed view
     function resetSymbolMilestones() {
       const track = document.getElementById('road-track');
       const allCards = document.querySelectorAll('.road-symbol-card');
@@ -804,7 +912,7 @@
       });
     }
 
-    // Scroll Focus Trigger
+    // Scroll Focus Trigger (Activates Section Focus + Auto-Colors Photo)
     document.addEventListener('DOMContentLoaded', () => {
       const focusSections = document.querySelectorAll('.focus-section');
       
