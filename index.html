@@ -70,7 +70,6 @@
       will-change: filter;
     }
 
-    /* Activated when #profile is in view; automatically reverts to grayscale when scrolled away */
     #profile.in-focus .portrait-photo {
       filter: grayscale(0%) contrast(1) !important;
     }
@@ -160,12 +159,21 @@
 </head>
 <body class="antialiased selection:bg-[#d9d2c9]">
 
-  <!-- Minimal Fixed Header -->
+  <!-- Minimal Fixed Header with NC Monogram Icon -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-[#F9F8F5]/85 backdrop-blur-md border-b border-sandBorder transition-all duration-300">
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#intro" class="font-extrabold text-lg tracking-tight text-darkCharcoal hover:opacity-70 transition-opacity">
-        Nilayan Chatterjee<span class="text-sageAccent">.</span>
+      
+      <!-- Monogram Icon + Name Brand -->
+      <a href="#intro" class="group flex items-center space-x-2.5 tracking-tight hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-lg bg-darkCharcoal text-linen flex items-center justify-center font-extrabold text-[11px] tracking-tight shadow-sm group-hover:bg-sageAccent transition-colors">
+          NC
+        </span>
+        <span class="font-extrabold text-lg text-darkCharcoal">
+          Nilayan Chatterjee<span class="text-sageAccent">.</span>
+        </span>
       </a>
+
+      <!-- Navigation Links -->
       <div class="flex items-center space-x-6 sm:space-x-8 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive">
         <a href="#profile" class="hover:text-darkCharcoal transition-colors">About</a>
         <a href="#journey" class="hover:text-darkCharcoal transition-colors">Highway</a>
@@ -284,7 +292,7 @@
       </div>
     </section>
 
-    <!-- ================= SECTION 2: ROAD HIGHWAY WITH FIXED HEIGHT (ZERO LAYOUT SHIFT) ================= -->
+    <!-- ================= SECTION 2: ROAD HIGHWAY ================= -->
     <section id="journey" class="focus-section py-24 border-b border-sandBorder">
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8">
         <div>
@@ -296,7 +304,7 @@
         </span>
       </div>
 
-      <!-- Horizontal Scroll Runway with Locked Height to prevent vertical jump -->
+      <!-- Horizontal Scroll Runway with Locked Height -->
       <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-6 px-6 no-scrollbar min-h-[460px] flex items-center">
         <div id="road-track" class="relative min-w-[1250px] flex items-center justify-between py-6 gap-3 transition-all duration-500 w-full">
           
@@ -323,10 +331,8 @@
               <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
                 <div class="flex items-center gap-3">
-                  <!-- Prev Arrow (Disabled on first stop) -->
                   <button class="nav-arrow-btn" disabled aria-label="Previous Stop">&#8592;</button>
 
-                  <!-- Main Content Card -->
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
                       <div class="flex items-center space-x-3">
@@ -352,7 +358,6 @@
                     </div>
                   </div>
 
-                  <!-- Next Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
@@ -378,10 +383,8 @@
               <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
                 <div class="flex items-center gap-3">
-                  <!-- Prev Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(0);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
 
-                  <!-- Main Content Card -->
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
                       <div class="flex items-center space-x-3">
@@ -410,7 +413,6 @@
                     </div>
                   </div>
 
-                  <!-- Next Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
@@ -436,10 +438,8 @@
               <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
                 <div class="flex items-center gap-3">
-                  <!-- Prev Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
 
-                  <!-- Main Content Card -->
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
                       <div class="flex items-center space-x-3">
@@ -465,7 +465,6 @@
                     </div>
                   </div>
 
-                  <!-- Next Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
@@ -493,10 +492,8 @@
               <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
                 <div class="flex items-center gap-3">
-                  <!-- Prev Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
 
-                  <!-- Main Content Card -->
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
                       <div class="flex items-center space-x-3">
@@ -522,7 +519,6 @@
                     </div>
                   </div>
 
-                  <!-- Next Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
@@ -548,10 +544,8 @@
               <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
                 <div class="flex items-center gap-3">
-                  <!-- Prev Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
 
-                  <!-- Main Content Card -->
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
                       <div class="flex items-center space-x-3">
@@ -577,7 +571,6 @@
                     </div>
                   </div>
 
-                  <!-- Next Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(5);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
@@ -605,10 +598,8 @@
               <!-- Expanded Detailed Content with Left/Right Nav -->
               <div class="symbol-expanded hidden pt-1 text-left">
                 <div class="flex items-center gap-3">
-                  <!-- Prev Arrow -->
                   <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
 
-                  <!-- Main Content Card -->
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
                       <div class="flex items-center space-x-3">
@@ -634,7 +625,6 @@
                     </div>
                   </div>
 
-                  <!-- Next Arrow (Disabled on final stop) -->
                   <button class="nav-arrow-btn" disabled aria-label="Next Stop">&#8594;</button>
                 </div>
               </div>
@@ -851,7 +841,7 @@
 
   </main>
 
-  <!-- Scripts: Milestone Navigation & 2-Way Scroll Focus Trigger -->
+  <!-- Scripts: Navigation & 2-Way Scroll Focus Trigger -->
   <script>
     // Image fallback sequence
     function handleImageFallback(img) {
@@ -925,7 +915,6 @@
           if (entry.isIntersecting) {
             entry.target.classList.add('in-focus');
           } else {
-            // Revert focus styles and photo color when scrolled away
             entry.target.classList.remove('in-focus');
           }
         });
