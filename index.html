@@ -1,929 +1,931 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nilayan Chatterjee — Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nilayan Chatterjee — Portfolio</title>
   
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Single Font Family: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600;1,800&display=swap" rel="stylesheet">
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            linen: '#F9F8F5',
-            warmCard: '#F2EFEB',
-            sandBorder: '#E5DFD7',
-            sageAccent: '#5A6E68',
-            softOlive: '#767F74',
-            darkCharcoal: '#1A1D1C',
-            mutedBrown: '#8B7A70',
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body {
-      background-color: #F9F8F5;
-      color: #1A1D1C;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      overflow-x: hidden;
-    }
-    ::selection {
-      background: #D9D2C9;
-      color: #1A1D1C;
-    }
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Single Font Family: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600;1,800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen: '#F9F8F5',
+            warmCard: '#F2EFEB',
+            sandBorder: '#E5DFD7',
+            sageAccent: '#5A6E68',
+            softOlive: '#767F74',
+            darkCharcoal: '#1A1D1C',
+            mutedBrown: '#8B7A70',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F9F8F5;
+      color: #1A1D1C;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    ::selection {
+      background: #D9D2C9;
+      color: #1A1D1C;
+    }
 
-    /* Scroll Focus Zoom System */
-    .focus-section {
-      transform: scale(0.94) translateY(20px);
-      opacity: 0.4;
-      filter: blur(1px);
-      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                  opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                  filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform, opacity, filter;
-      transform-origin: center center;
-    }
+    /* Scroll Focus Zoom System */
+    .focus-section {
+      transform: scale(0.94) translateY(20px);
+      opacity: 0.4;
+      filter: blur(1px);
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity, filter;
+      transform-origin: center center;
+    }
 
-    .focus-section.in-focus {
-      transform: scale(1) translateY(0);
-      opacity: 1;
-      filter: blur(0);
-    }
+    .focus-section.in-focus {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      filter: blur(0);
+    }
 
-    /* 2-Way Photo Color Switch */
-    .portrait-photo {
-      filter: grayscale(100%) contrast(1.05);
-      transition: filter 1s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: filter;
-    }
+    /* 2-Way Photo Color Switch */
+    .portrait-photo {
+      filter: grayscale(100%) contrast(1.05);
+      transition: filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: filter;
+    }
 
-    #profile.in-focus .portrait-photo {
-      filter: grayscale(0%) contrast(1) !important;
-    }
+    #profile.in-focus .portrait-photo {
+      filter: grayscale(0%) contrast(1) !important;
+    }
 
-    /* Card Micro-interactions */
-    .card-float {
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
-    }
-    .card-float:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 32px -8px rgba(26, 29, 28, 0.08);
-    }
+    /* Card Micro-interactions */
+    .card-float {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .card-float:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px -8px rgba(26, 29, 28, 0.08);
+    }
 
-    /* Hide horizontal scrollbars */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+    /* Hide horizontal scrollbars */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-    /* Road Milestone Symbol Container & Accordion */
-    .road-symbol-card {
-      transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform, width, opacity;
-    }
+    /* Road Milestone Symbol Container & Accordion */
+    .road-symbol-card {
+      transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, width, opacity;
+    }
 
-    /* When a milestone is ACTIVE / EXPANDED */
-    .road-symbol-card.expanded {
-      width: 530px !important;
-      opacity: 1 !important;
-      transform: scale(1.02) !important;
-      z-index: 40 !important;
-    }
+    /* When a milestone is ACTIVE / EXPANDED */
+    .road-symbol-card.expanded {
+      width: 530px !important;
+      opacity: 1 !important;
+      transform: scale(1.02) !important;
+      z-index: 40 !important;
+    }
 
-    /* When another milestone is active, shrink peers */
-    .has-expanded .road-symbol-card:not(.expanded) {
-      width: 96px !important;
-      opacity: 0.35 !important;
-      transform: scale(0.82) !important;
-      filter: grayscale(0.9);
-    }
+    /* When another milestone is active, shrink peers */
+    .has-expanded .road-symbol-card:not(.expanded) {
+      width: 96px !important;
+      opacity: 0.35 !important;
+      transform: scale(0.82) !important;
+      filter: grayscale(0.9);
+    }
 
-    .has-expanded .road-symbol-card:not(.expanded):hover {
-      opacity: 0.85 !important;
-      filter: grayscale(0);
-      transform: scale(0.9) !important;
-    }
+    .has-expanded .road-symbol-card:not(.expanded):hover {
+      opacity: 0.85 !important;
+      filter: grayscale(0);
+      transform: scale(0.9) !important;
+    }
 
-    /* Navigation Arrows beside the card */
-    .nav-arrow-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 9999px;
-      background: #F9F8F5;
-      border: 1px solid #E5DFD7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1A1D1C;
-      font-weight: bold;
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-    }
-    .nav-arrow-btn:hover {
-      background: #1A1D1C;
-      color: #F9F8F5;
-      border-color: #1A1D1C;
-      transform: scale(1.08);
-    }
-    .nav-arrow-btn:disabled {
-      opacity: 0.25;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
+    /* Navigation Arrows beside the card */
+    .nav-arrow-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      background: #F9F8F5;
+      border: 1px solid #E5DFD7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1A1D1C;
+      font-weight: bold;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .nav-arrow-btn:hover {
+      background: #1A1D1C;
+      color: #F9F8F5;
+      border-color: #1A1D1C;
+      transform: scale(1.08);
+    }
+    .nav-arrow-btn:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
 
-    /* Bouncing Scroll Cue */
-    @keyframes bounceSlow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(7px); }
-    }
-    .animate-bounce-slow {
-      animation: bounceSlow 2s ease-in-out infinite;
-    }
-  </style>
+    /* Bouncing Scroll Cue */
+    @keyframes bounceSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+    .animate-bounce-slow {
+      animation: bounceSlow 2s ease-in-out infinite;
+    }
+  </style>
 </head>
 <body class="antialiased selection:bg-[#d9d2c9]">
 
-  <!-- Minimal Fixed Header with NC Monogram Icon -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#F9F8F5]/85 backdrop-blur-md border-b border-sandBorder transition-all duration-300">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      
-      <!-- Monogram Icon + Name Brand -->
-      <a href="#intro" class="group flex items-center space-x-2.5 tracking-tight hover:opacity-80 transition-opacity">
-        <span class="w-7 h-7 rounded-lg bg-darkCharcoal text-linen flex items-center justify-center font-extrabold text-[11px] tracking-tight shadow-sm group-hover:bg-sageAccent transition-colors">
-          NC
-        </span>
-        <span class="font-extrabold text-lg text-darkCharcoal">
-          Nilayan Chatterjee<span class="text-sageAccent">.</span>
-        </span>
-      </a>
-
-      <!-- Navigation Links -->
-      <div class="flex items-center space-x-6 sm:space-x-8 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive">
-        <a href="#profile" class="hover:text-darkCharcoal transition-colors">About</a>
-        <a href="#journey" class="hover:text-darkCharcoal transition-colors">Highway</a>
-        <a href="#work" class="hover:text-darkCharcoal transition-colors">Work</a>
-        <a href="#disciplines" class="hover:text-darkCharcoal transition-colors">Disciplines</a>
-        <a href="#pedigree" class="hover:text-darkCharcoal transition-colors">Pedigree</a>
-        <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="text-darkCharcoal border-b border-darkCharcoal pb-0.5 hover:opacity-60 transition-opacity">
-          LinkedIn ↗
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ================= SECTION 0: FULL-SCREEN INTRO ================= -->
-  <section id="intro" class="focus-section in-focus min-h-screen flex flex-col justify-between items-center text-center px-6 pt-36 pb-12 relative border-b border-sandBorder">
-   
-
-    <div class="max-w-4xl mx-auto my-auto py-12">
-      <p class="text-lg sm:text-xl font-medium text-softOlive mb-3">Hello, nice to meet you.</p>
-      <h1 class="text-6xl sm:text-8xl md:text-9xl font-extrabold text-darkCharcoal tracking-tight leading-[0.95] mb-6">
-        I am <span class="italic font-normal text-mutedBrown">Nilayan</span>.
-      </h1>
-      <p class="text-lg sm:text-2xl text-darkCharcoal/80 font-normal max-w-2xl mx-auto leading-relaxed">
-        Senior Business Analyst, AI-enabled Product Strategist.
-      </p>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <a href="#profile" class="flex flex-col items-center text-softOlive hover:text-darkCharcoal transition-colors cursor-pointer group">
-      <span class="text-[10px] uppercase tracking-[0.22em] font-bold mb-2 group-hover:text-darkCharcoal">Scroll to Discover</span>
-      <div class="w-6 h-10 border-2 border-sandBorder rounded-full flex justify-center p-1 group-hover:border-darkCharcoal transition-colors">
-        <div class="w-1.5 h-2.5 bg-darkCharcoal rounded-full animate-bounce-slow"></div>
-      </div>
-    </a>
-  </section>
-
-  <!-- Main Container -->
-  <main class="max-w-5xl mx-auto px-6">
-
-    <!-- ================= SECTION 1: PHOTO + EXECUTIVE SUMMARY ================= -->
-    <section id="profile" class="focus-section py-24 sm:py-32 border-b border-sandBorder">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-        
-        <!-- Portrait Image with 2-Way Dynamic Scroll Color Switch -->
-        <div class="md:col-span-5 flex justify-center md:justify-start">
-          <div class="relative group">
-            <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border border-sandBorder shadow-sm bg-warmCard relative flex items-center justify-center">
-              
-              <img id="profile-img" 
-                   src="profile.jpg" 
-                   alt="Nilayan Chatterjee" 
-                   onerror="handleImageFallback(this)"
-                   class="portrait-photo w-full h-full object-cover object-center">
-
-              <div id="profile-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-warmCard">
-                <div class="w-20 h-20 rounded-full bg-sandBorder flex items-center justify-center mb-3 text-2xl font-extrabold text-darkCharcoal">
-                  NC
-                </div>
-                <p class="text-xs font-bold text-darkCharcoal">Nilayan Chatterjee</p>
-                <p class="text-[10px] text-softOlive mt-1">Profile Photo</p>
-              </div>
-
-            </div>
-            <div class="absolute -bottom-3 -right-3 bg-linen border border-sandBorder rounded-lg px-3.5 py-1.5 text-[11px] font-mono uppercase tracking-wider text-mutedBrown shadow-sm">
-              Nilayan Chatterjee
-            </div>
-          </div>
-        </div>
-
-        <!-- Executive Summary -->
-        <div class="md:col-span-7">
-          <div class="text-[11px] uppercase tracking-[0.22em] text-mutedBrown font-bold mb-3">
-            Executive Summary
-          </div>
-          
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight leading-snug mb-6">
-            Translating complex enterprise vision into high-impact digital products.
-          </h2>
-
-          <div class="space-y-4 text-darkCharcoal/80 text-base leading-relaxed font-normal mb-8">
-            <p>
-              I am a dual-disciplined engineering and management professional based in Kolkata, working at the intersection of product discovery, agile execution, and next-gen AI enablement.
-            </p>
-            <p>
-              With experience spanning <strong>Accenture</strong>, <strong>Tally Solutions</strong>, and <strong>Cognizant</strong>, I specialize in bridging technical architectures with executive ROI—orchestrating high-velocity scrum teams, designing automated data pipelines, and building business rule governance models that ensure zero requirement drift.
-            </p>
-          </div>
-
-          <!-- Direct CTAs -->
-          <div class="flex flex-wrap items-center gap-4 mb-8">
-            <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal bg-darkCharcoal text-linen px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal transition-all duration-300">
-              Email Me &rarr;
-            </a>
-            <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="inline-block border border-darkCharcoal px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold text-darkCharcoal hover:bg-darkCharcoal hover:text-linen transition-all duration-300">
-              LinkedIn Profile ↗
-            </a>
-          </div>
-
-          <!-- Summary Badges -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-sandBorder">
-            <div>
-              <p class="text-[10px] uppercase tracking-wider text-softOlive font-bold">Focus</p>
-              <p class="text-sm font-bold text-darkCharcoal mt-0.5">Agile & Product Strategy</p>
-            </div>
-            <div>
-              <p class="text-[10px] uppercase tracking-wider text-softOlive font-bold">Credentials</p>
-              <p class="text-sm font-bold text-darkCharcoal mt-0.5">ECBA™ &bull; Agentic AI</p>
-            </div>
-            <div>
-              <p class="text-[10px] uppercase tracking-wider text-softOlive font-bold">Alumni</p>
-              <p class="text-sm font-bold text-darkCharcoal mt-0.5">GIM &bull; Techno Main</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= SECTION 2: ROAD HIGHWAY ================= -->
-    <section id="journey" class="focus-section py-24 border-b border-sandBorder">
-      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8">
-        <div>
-          <span class="text-[11px] uppercase tracking-widest text-mutedBrown font-bold">// THE CAREER HIGHWAY</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight mt-1">My Journey</h2>
-        </div>
-       
-      </div>
-
-      <!-- Horizontal Scroll Runway with Locked Height -->
-      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-6 px-6 no-scrollbar min-h-[460px] flex items-center">
-        <div id="road-track" class="relative min-w-[1250px] flex items-center justify-between py-6 gap-3 transition-all duration-500 w-full">
-          
-          <!-- Asphalt Road Running Directly Through All Stops -->
-          <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-16 bg-[#212524] rounded-3xl shadow-inner border-y-2 border-[#38403e] flex items-center pointer-events-none z-0">
-            <div class="w-full border-t-2 border-dashed border-[#F9F8F5]/30"></div>
-          </div>
-
-          <!-- Symbol 1: B.Tech (Index 0) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="0">
-            <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-linen border border-sandBorder flex items-center justify-center text-darkCharcoal shadow-sm mb-3 group-hover:scale-110 transition-transform">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                </div>
-                <span class="text-[9px] font-mono font-bold text-mutedBrown uppercase">Milestone 01</span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal mt-0.5">B.Tech in ECE</h4>
-                <p class="text-[10px] text-softOlive">Techno Main Salt Lake</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2017 – 2021</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button class="nav-arrow-btn" disabled aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#003366] text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
-                          TMSL
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 01 // Academics</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal">Techno Main Salt Lake</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">B.Tech in Electronics & Communication &bull; 2017–2021</p>
-                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                      Built deep foundations in computational logic, analytical computation, and system architectures. Developed problem-solving rigor that anchors modern data governance and enterprise software delivery.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Digital Logic</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Systems Design</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Computation</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 2: Cognizant (Index 1) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="1">
-            <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-linen border border-sandBorder flex items-center justify-center text-sageAccent shadow-sm mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>
-                </div>
-                <span class="text-[9px] font-mono font-bold text-sageAccent uppercase">Software Engineer</span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal mt-0.5">Cognizant</h4>
-                <p class="text-[10px] text-softOlive">Insurance Tech (21 Mos)</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2021 – 2023</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(0);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#000048] flex items-center justify-center p-1.5 shadow-sm border border-sandBorder flex-shrink-0">
-                          <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
-                            <circle cx="50" cy="50" r="38" stroke="#1F69FF" stroke-width="12"/>
-                            <circle cx="50" cy="50" r="18" fill="#1F69FF"/>
-                          </svg>
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 02 // Enterprise Tech</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal">Cognizant</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">Junior Software Engineer &bull; 21 Months (2021–2023)</p>
-                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                      Delivered application reliability pipelines, defect triage, and automated incident resolution workflows for tier-1 global insurance clients. Collaborated across developer and operations squads to maintain 99.9% uptime.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Incident Triage</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Root Cause Analysis</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">SLA Governance</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 3: GIM Goa Part 1 (Index 2) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="2">
-            <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-linen border border-sandBorder flex items-center justify-center text-darkCharcoal shadow-sm mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-                </div>
-                <span class="text-[9px] font-mono font-bold text-mutedBrown uppercase">MBA Entry</span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal mt-0.5">GIM Goa</h4>
-                <p class="text-[10px] text-softOlive">PGDM Core Curriculum</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2023</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
-                          GIM
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 03 // Leadership</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal">Goa Institute of Management</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Program Onboarding &bull; 2023</p>
-                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                      Commenced advanced business management studies specializing in Product Strategy, Operations, and Business Analysis. Explored behavioral financial models and social cost-benefit analysis.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Product Strategy</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Operations Research</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Financial Modeling</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 4: Tally Solutions (Index 3) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="3">
-            <div class="bg-[#f5ede3] border-2 border-dashed border-mutedBrown rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-warmCard border border-mutedBrown flex items-center justify-center text-mutedBrown shadow-sm mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
-                </div>
-                <span class="inline-block bg-mutedBrown text-linen text-[8px] font-mono font-bold px-2 py-0.5 rounded-full uppercase mb-1">
-                  Internship Trip
-                </span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal">Tally Solutions</h4>
-                <p class="text-[10px] text-softOlive">Product Management</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Summer 2024</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#E85D04] text-white flex items-center justify-center font-black text-sm tracking-tighter shadow-sm border border-sandBorder flex-shrink-0">
-                          Tally
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 04 // Product Pitstop</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal">Tally Solutions</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">Product Management Intern &bull; Bangalore &bull; Summer 2024</p>
-                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                      Led discovery initiatives and user empathy mapping to revamp core document-sharing workflows across accounting user personas. Defined MVP roadmaps and user story hierarchies for engineering handoff.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Persona Research</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">MVP Scoping</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">User Journey Maps</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 5: GIM Goa Part 2 (Index 4) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="4">
-            <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-linen border border-sandBorder flex items-center justify-center text-darkCharcoal shadow-sm mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                </div>
-                <span class="text-[9px] font-mono font-bold text-mutedBrown uppercase">Graduation</span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal mt-0.5">GIM Goa</h4>
-                <p class="text-[10px] text-softOlive">Strategy & Product Focus</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2024 – 2025</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
-                          GIM
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 05 // Executive Degree</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal">GIM Goa</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Graduation (MBA Equivalent) &bull; 2024–2025</p>
-                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                      Graduated with core competencies in enterprise systems modeling, agile scrum ceremonies, data modeling (Power BI), and business process re-engineering.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Agile Governance</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Power BI Modeling</span>
-                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">BPMN Design</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(5);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 6: Accenture (Index 5) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer" data-index="5">
-            <div class="bg-linen border-2 border-sageAccent rounded-2xl p-4 shadow-lg text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-sageAccent text-linen flex items-center justify-center shadow-md mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
-                </div>
-                <span class="inline-block bg-sageAccent text-linen text-[8px] font-mono font-bold px-2.5 py-0.5 rounded-full uppercase mb-1">
-                  Current Destination
-                </span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal">Accenture</h4>
-                <p class="text-[10px] text-sageAccent font-bold">Senior BA & Scrum Master</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-warmCard px-2 py-0.5 rounded border border-sandBorder">2025 – Present</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#A100FF] text-white flex items-center justify-center font-black text-xl leading-none shadow-sm border border-sandBorder flex-shrink-0">
-                          &gt;
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 06 // Current Role</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal">Accenture</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-warmCard px-2 py-1 rounded border border-sandBorder">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">Senior Business Analyst & Scrum Master &bull; 2025–Present</p>
-                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
-                      Leading cross-functional Agile sprint ceremonies, user story refinement, and commerce architectures across AEM and Adobe Commerce. Architected an organizational rule engine that significantly improved requirement compliance and data trust metrics.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
-                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Scrum Master</span>
-                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">AEM & Adobe Commerce</span>
-                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Rule Engines</span>
-                    </div>
-                  </div>
-
-                  <button class="nav-arrow-btn" disabled aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-      
-      <p class="text-center text-xs text-softOlive font-mono">
-        ← Drag / swipe horizontally &bull; Use &larr; / &rarr; arrows to travel between stops →
-      </p>
-    </section>
-
-    <!-- ================= SECTION 3: WORK EXPERIENCE DETAILS ================= -->
-    <section id="work" class="focus-section py-24 border-b border-sandBorder">
-      <div class="flex items-baseline justify-between mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight">Selected Experience</h2>
-        <span class="text-[11px] uppercase tracking-widest text-softOlive font-semibold">[ 02 — Experience ]</span>
-      </div>
-
-      <div class="space-y-12">
-        
-        <!-- Experience 1: Accenture -->
-        <article class="card-float border border-sandBorder rounded-2xl bg-warmCard p-8 sm:p-10 hover:border-darkCharcoal/30">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder pb-5 mb-6">
-            <div>
-              <span class="text-xs uppercase tracking-widest text-mutedBrown font-bold">2025 &ndash; Present</span>
-              <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal mt-1 tracking-tight">Accenture</h3>
-            </div>
-            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Senior Business Analyst & Scrum Master</span>
-          </div>
-
-          <p class="text-base text-darkCharcoal/85 leading-relaxed mb-6 font-normal">
-            Driving Agile sprint governance and functional requirements architecture for enterprise retail optical and commerce solutions.
-          </p>
-
-          <ul class="space-y-3 text-sm text-darkCharcoal/80 mb-6 border-l-2 border-sandBorder pl-5 font-normal">
-            <li>Facilitated end-to-end Agile ceremonies across multi-pod teams, managing backlog refinement, sprint planning, and release milestones.</li>
-            <li>Engineered an organizational data rule generation system, measurably lifting requirement compliance and data trust metrics.</li>
-            <li>Authored comprehensive functional specifications, bridging UX prototypes with Adobe Experience Manager (AEM) and Adobe Commerce platforms.</li>
-          </ul>
-
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder text-xs text-softOlive uppercase tracking-wider font-semibold">
-            <span>Scrum Leadership</span> &bull; 
-            <span>AEM</span> &bull; 
-            <span>Adobe Commerce</span> &bull; 
-            <span>Azure DevOps</span> &bull; 
-            <span>Rule Engines</span>
-          </div>
-        </article>
-
-        <!-- Experience 2: Tally Solutions -->
-        <article class="card-float border border-sandBorder rounded-2xl bg-warmCard p-8 sm:p-10 hover:border-darkCharcoal/30">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder pb-5 mb-6">
-            <div>
-              <span class="text-xs uppercase tracking-widest text-mutedBrown font-bold">Summer 2024</span>
-              <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal mt-1 tracking-tight">Tally Solutions</h3>
-            </div>
-            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Product Management Intern</span>
-          </div>
-
-          <p class="text-base text-darkCharcoal/85 leading-relaxed mb-6 font-normal">
-            Spearheaded product discovery initiatives to optimize core document-sharing user touchpoints.
-          </p>
-
-          <ul class="space-y-3 text-sm text-darkCharcoal/80 mb-6 border-l-2 border-sandBorder pl-5 font-normal">
-            <li>Conducted user empathy mapping and customer interviews across accounting personas to surface workflow bottlenecks.</li>
-            <li>Formulated the MVP scope, prioritized user stories, and built delivery roadmaps for software engineering handoff.</li>
-          </ul>
-
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder text-xs text-softOlive uppercase tracking-wider font-semibold">
-            <span>Product Discovery</span> &bull; 
-            <span>Persona Mapping</span> &bull; 
-            <span>MVP Backlog</span> &bull; 
-            <span>UX Research</span>
-          </div>
-        </article>
-
-        <!-- Experience 3: Cognizant -->
-        <article class="card-float border border-sandBorder rounded-2xl bg-warmCard p-8 sm:p-10 hover:border-darkCharcoal/30">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder pb-5 mb-6">
-            <div>
-              <span class="text-xs uppercase tracking-widest text-mutedBrown font-bold">21 Months</span>
-              <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal mt-1 tracking-tight">Cognizant</h3>
-            </div>
-            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Junior Software Engineer</span>
-          </div>
-
-          <p class="text-base text-darkCharcoal/85 leading-relaxed mb-6 font-normal">
-            Managed tier-level incident triage, system support, and defect resolution pipelines for global tier-1 insurance clients.
-          </p>
-
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder text-xs text-softOlive uppercase tracking-wider font-semibold">
-            <span>Systems Triage</span> &bull; 
-            <span>Root Cause Analysis</span> &bull; 
-            <span>SLA Governance</span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ================= SECTION 4: DISCIPLINES ================= -->
-    <section id="disciplines" class="focus-section py-24 border-b border-sandBorder">
-      <div class="flex items-baseline justify-between mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight">Core Disciplines</h2>
-        <span class="text-[11px] uppercase tracking-widest text-softOlive font-semibold">[ 03 — Disciplines ]</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <div class="card-float p-8 rounded-2xl border border-sandBorder bg-warmCard">
-          <h3 class="text-xl font-bold text-darkCharcoal mb-3">Agile Leadership</h3>
-          <p class="text-sm text-softOlive leading-relaxed mb-6 font-normal">
-            Sprint Facilitation, User Story Mapping, Backlog Grooming, Release Planning, Persona Discovery.
-          </p>
-          <div class="text-[11px] font-mono text-mutedBrown uppercase font-medium">Jira &bull; Azure DevOps &bull; Confluence</div>
-        </div>
-
-        <div class="card-float p-8 rounded-2xl border border-sandBorder bg-warmCard">
-          <h3 class="text-xl font-bold text-darkCharcoal mb-3">Data & Automation</h3>
-          <p class="text-sm text-softOlive leading-relaxed mb-6 font-normal">
-            Microsoft Power BI Dashboards, Power Automate ETL Flows, DAX Modeling, Automated HTML Reporting.
-          </p>
-          <div class="text-[11px] font-mono text-mutedBrown uppercase font-medium">Power BI &bull; Power Automate &bull; DAX</div>
-        </div>
-
-        <div class="card-float p-8 rounded-2xl border border-sandBorder bg-warmCard">
-          <h3 class="text-xl font-bold text-darkCharcoal mb-3">Agentic AI Workflows</h3>
-          <p class="text-sm text-softOlive leading-relaxed mb-6 font-normal">
-            Enterprise AI Reinvention, GitHub Copilot integration for requirements elicitation, GenAI Prompting.
-          </p>
-          <div class="text-[11px] font-mono text-mutedBrown uppercase font-medium">Agentic AI &bull; GenAI &bull; Copilot</div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= SECTION 5: CREDENTIALS & PEDIGREE ================= -->
-    <section id="pedigree" class="focus-section py-24 border-b border-sandBorder">
-      <div class="flex items-baseline justify-between mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight">Credentials & Pedigree</h2>
-        <span class="text-[11px] uppercase tracking-widest text-softOlive font-semibold">[ 04 — Pedigree ]</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <div class="card-float p-6 rounded-xl border border-sandBorder bg-warmCard flex items-start justify-between">
-          <div>
-            <span class="text-[10px] uppercase tracking-widest text-sageAccent font-bold">Accenture Certified</span>
-            <h4 class="text-lg font-bold text-darkCharcoal mt-1">Reinvention with Agentic AI</h4>
-            <p class="text-xs text-softOlive mt-1 font-normal">Generative AI Enterprise Practice</p>
-          </div>
-          <span class="text-[10px] uppercase tracking-wider font-mono text-mutedBrown border border-sandBorder px-2.5 py-1 rounded bg-linen">Accredited</span>
-        </div>
-
-        <div class="card-float p-6 rounded-xl border border-sandBorder bg-warmCard flex items-start justify-between">
-          <div>
-            <span class="text-[10px] uppercase tracking-widest text-sageAccent font-bold">IIBA Accredited</span>
-            <h4 class="text-lg font-bold text-darkCharcoal mt-1">Entry Certificate in BA (ECBA™)</h4>
-            <p class="text-xs text-softOlive mt-1 font-normal">International Institute of Business Analysis</p>
-          </div>
-          <span class="text-[10px] uppercase tracking-wider font-mono text-mutedBrown border border-sandBorder px-2.5 py-1 rounded bg-linen">Accredited</span>
-        </div>
-
-        <div class="card-float p-6 rounded-xl border border-sandBorder bg-warmCard">
-          <span class="text-[10px] uppercase tracking-widest text-mutedBrown font-bold">Goa Institute of Management (GIM)</span>
-          <h4 class="text-lg font-bold text-darkCharcoal mt-1">Post Graduate Diploma in Management</h4>
-          <p class="text-xs text-softOlive mt-1 font-normal">Business Strategy, Operations & Product Leadership</p>
-        </div>
-
-        <div class="card-float p-6 rounded-xl border border-sandBorder bg-warmCard">
-          <span class="text-[10px] uppercase tracking-widest text-mutedBrown font-bold">Techno Main Salt Lake</span>
-          <h4 class="text-lg font-bold text-darkCharcoal mt-1">B.Tech in Electronics & Communication</h4>
-          <p class="text-xs text-softOlive mt-1 font-normal">Foundational Computation, Digital Systems & Logic Design</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= SECTION 6: FOOTER ================= -->
-    <footer class="focus-section pt-24 pb-16 text-center">
-      <div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-darkCharcoal leading-tight mb-4 tracking-tight">
-          Let’s build meaningful products together.
-        </h2>
-        <p class="text-base text-softOlive max-w-md mx-auto mb-8 font-normal">
-          Open for Senior Business Analyst, Product Manager, Strategy, and Consulting opportunities.
-        </p>
-
-        <div class="mb-10">
-          <a href="mailto:nilayancworks@gmail.com" class="inline-block font-mono text-sm sm:text-base font-semibold text-darkCharcoal border-b-2 border-darkCharcoal pb-1 hover:text-sageAccent hover:border-sageAccent transition-colors">
-            nilayancworks@gmail.com
-          </a>
-        </div>
-        
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal bg-darkCharcoal text-linen px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal transition-all duration-300">
-            Send an Email &rarr;
-          </a>
-          <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="inline-block border border-darkCharcoal px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold text-darkCharcoal hover:bg-darkCharcoal hover:text-linen transition-all duration-300">
-            LinkedIn Profile ↗
-          </a>
-        </div>
-
-        <div class="mt-20 pt-8 border-t border-sandBorder flex flex-col sm:flex-row justify-between text-xs text-softOlive">
-          <span>&copy; 2026 Nilayan Chatterjee</span>
-        </div>
-      </div>
-    </footer>
-
-  </main>
-
-  <!-- Scripts: Navigation & 2-Way Scroll Focus Trigger -->
-  <script>
-    // Image fallback sequence
-    function handleImageFallback(img) {
-      const extensions = ['profile.png', 'profile.jpeg', 'WhatsApp Image 2026-08-27 at 9.10.53 PM.jpeg'];
-      let currentAttempt = parseInt(img.dataset.attempt || 0);
-
-      if (currentAttempt < extensions.length) {
-        img.dataset.attempt = currentAttempt + 1;
-        img.src = extensions[currentAttempt];
-      } else {
-        img.classList.add('hidden');
-        document.getElementById('profile-fallback').classList.remove('hidden');
-      }
-    }
-
-    // Toggle and expand an individual milestone
-    function toggleSymbolMilestone(cardElement) {
-      const isAlreadyExpanded = cardElement.classList.contains('expanded');
-      const track = document.getElementById('road-track');
-      const allCards = document.querySelectorAll('.road-symbol-card');
-
-      if (isAlreadyExpanded) {
-        resetSymbolMilestones();
-        return;
-      }
-
-      track.classList.add('has-expanded');
-      allCards.forEach(c => {
-        c.classList.remove('expanded');
-        c.querySelector('.symbol-collapsed').classList.remove('hidden');
-        c.querySelector('.symbol-expanded').classList.add('hidden');
-      });
-
-      cardElement.classList.add('expanded');
-      cardElement.querySelector('.symbol-collapsed').classList.add('hidden');
-      cardElement.querySelector('.symbol-expanded').classList.remove('hidden');
-
-      // Horizontal container scroll only to prevent vertical layout shifting
-      const scrollContainer = document.getElementById('highway-scroll-container');
-      const cardOffset = cardElement.offsetLeft - scrollContainer.offsetLeft - (scrollContainer.clientWidth / 2) + (cardElement.clientWidth / 2);
-      scrollContainer.scrollTo({ left: cardOffset, behavior: 'smooth' });
-    }
-
-    // Programmatically navigate to target milestone index with arrows
-    function navigateMilestone(targetIndex) {
-      const allCards = document.querySelectorAll('.road-symbol-card');
-      if (targetIndex >= 0 && targetIndex < allCards.length) {
-        toggleSymbolMilestone(allCards[targetIndex]);
-      }
-    }
-
-    // Reset to collapsed view
-    function resetSymbolMilestones() {
-      const track = document.getElementById('road-track');
-      const allCards = document.querySelectorAll('.road-symbol-card');
-
-      track.classList.remove('has-expanded');
-      allCards.forEach(c => {
-        c.classList.remove('expanded');
-        c.querySelector('.symbol-collapsed').classList.remove('hidden');
-        c.querySelector('.symbol-expanded').classList.add('hidden');
-      });
-    }
-
-    // 2-Way Scroll Focus Trigger: Dynamically colors/discolors photo when entering/exiting view
-    document.addEventListener('DOMContentLoaded', () => {
-      const focusSections = document.querySelectorAll('.focus-section');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-focus');
-          } else {
-            entry.target.classList.remove('in-focus');
-          }
-        });
-      }, {
-        threshold: 0.2,
-        rootMargin: '-20px 0px -20px 0px'
-      });
-
-      focusSections.forEach(section => observer.observe(section));
-    });
-  </script>
+  <!-- Minimal Fixed Header with NC Monogram Icon -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#F9F8F5]/85 backdrop-blur-md border-b border-sandBorder transition-all duration-300">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      
+      <!-- Monogram Icon + Name Brand -->
+      <a href="#intro" class="group flex items-center space-x-2.5 tracking-tight hover:opacity-80 transition-opacity">
+        <span class="w-7 h-7 rounded-lg bg-darkCharcoal text-linen flex items-center justify-center font-extrabold text-[11px] tracking-tight shadow-sm group-hover:bg-sageAccent transition-colors">
+          NC
+        </span>
+        <span class="font-extrabold text-lg text-darkCharcoal">
+          Nilayan Chatterjee<span class="text-sageAccent">.</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="flex items-center space-x-6 sm:space-x-8 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive">
+        <a href="#profile" class="hover:text-darkCharcoal transition-colors">About</a>
+        <a href="#journey" class="hover:text-darkCharcoal transition-colors">Highway</a>
+        <a href="#work" class="hover:text-darkCharcoal transition-colors">Work</a>
+        <a href="#disciplines" class="hover:text-darkCharcoal transition-colors">Disciplines</a>
+        <a href="#pedigree" class="hover:text-darkCharcoal transition-colors">Pedigree</a>
+        <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="text-darkCharcoal border-b border-darkCharcoal pb-0.5 hover:opacity-60 transition-opacity">
+          LinkedIn ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= SECTION 0: FULL-SCREEN INTRO ================= -->
+  <section id="intro" class="focus-section in-focus min-h-screen flex flex-col justify-between items-center text-center px-6 pt-36 pb-12 relative border-b border-sandBorder">
+    <div></div>
+
+    <div class="max-w-4xl mx-auto my-auto py-12">
+      <p class="text-lg sm:text-xl font-medium text-softOlive mb-3">Hello, nice to meet you.</p>
+      <h1 class="text-6xl sm:text-8xl md:text-9xl font-extrabold text-darkCharcoal tracking-tight leading-[0.95] mb-6">
+        Meet <span class="italic font-normal text-mutedBrown">Nilayan</span>.
+      </h1>
+      <p class="text-lg sm:text-2xl text-darkCharcoal/80 font-normal max-w-2xl mx-auto leading-relaxed">
+        Senior Business Analyst, Scrum Master & AI-enabled Product Strategist.
+      </p>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <a href="#profile" class="flex flex-col items-center text-softOlive hover:text-darkCharcoal transition-colors cursor-pointer group">
+      <span class="text-[10px] uppercase tracking-[0.22em] font-bold mb-2 group-hover:text-darkCharcoal">Scroll to Discover</span>
+      <div class="w-6 h-10 border-2 border-sandBorder rounded-full flex justify-center p-1 group-hover:border-darkCharcoal transition-colors">
+        <div class="w-1.5 h-2.5 bg-darkCharcoal rounded-full animate-bounce-slow"></div>
+      </div>
+    </a>
+  </section>
+
+  <!-- Main Container -->
+  <main class="max-w-5xl mx-auto px-6">
+
+    <!-- ================= SECTION 1: PHOTO + EXECUTIVE SUMMARY ================= -->
+    <section id="profile" class="focus-section py-24 sm:py-32 border-b border-sandBorder">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        
+        <!-- Portrait Image with 2-Way Dynamic Scroll Color Switch -->
+        <div class="md:col-span-5 flex justify-center md:justify-start">
+          <div class="relative group">
+            <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border border-sandBorder shadow-sm bg-warmCard relative flex items-center justify-center">
+              
+              <img id="profile-img" 
+                   src="profile.jpg" 
+                   alt="Nilayan Chatterjee" 
+                   onerror="handleImageFallback(this)"
+                   class="portrait-photo w-full h-full object-cover object-center">
+
+              <div id="profile-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-warmCard">
+                <div class="w-20 h-20 rounded-full bg-sandBorder flex items-center justify-center mb-3 text-2xl font-extrabold text-darkCharcoal">
+                  NC
+                </div>
+                <p class="text-xs font-bold text-darkCharcoal">Nilayan Chatterjee</p>
+                <p class="text-[10px] text-softOlive mt-1">Profile Photo</p>
+              </div>
+
+            </div>
+            <div class="absolute -bottom-3 -right-3 bg-linen border border-sandBorder rounded-lg px-3.5 py-1.5 text-[11px] font-mono uppercase tracking-wider text-mutedBrown shadow-sm">
+              Nilayan Chatterjee
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="md:col-span-7">
+          <div class="text-[11px] uppercase tracking-[0.22em] text-mutedBrown font-bold mb-3">
+            Executive Summary
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight leading-snug mb-6">
+            Translating complex enterprise vision into high-impact digital products.
+          </h2>
+
+          <div class="space-y-4 text-darkCharcoal/80 text-base leading-relaxed font-normal mb-8">
+            <p>
+              I am a dual-disciplined engineering and management professional based in Kolkata, working at the intersection of product discovery, agile execution, and next-gen AI enablement.
+            </p>
+            <p>
+              With experience spanning <strong>Accenture</strong>, <strong>Tally Solutions</strong>, and <strong>Cognizant</strong>, I specialize in bridging technical architectures with executive ROI—orchestrating high-velocity scrum teams, designing automated data pipelines, and building business rule governance models that ensure zero requirement drift.
+            </p>
+          </div>
+
+          <!-- Direct CTAs -->
+          <div class="flex flex-wrap items-center gap-4 mb-8">
+            <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal bg-darkCharcoal text-linen px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal transition-all duration-300">
+              Email Me &rarr;
+            </a>
+            <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="inline-block border border-darkCharcoal px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold text-darkCharcoal hover:bg-darkCharcoal hover:text-linen transition-all duration-300">
+              LinkedIn Profile ↗
+            </a>
+          </div>
+
+          <!-- Summary Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-sandBorder">
+            <div>
+              <p class="text-[10px] uppercase tracking-wider text-softOlive font-bold">Focus</p>
+              <p class="text-sm font-bold text-darkCharcoal mt-0.5">Agile & Product Strategy</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-wider text-softOlive font-bold">Credentials</p>
+              <p class="text-sm font-bold text-darkCharcoal mt-0.5">ECBA™ &bull; Agentic AI</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-wider text-softOlive font-bold">Alumni</p>
+              <p class="text-sm font-bold text-darkCharcoal mt-0.5">GIM &bull; Techno Main</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: ROAD HIGHWAY ================= -->
+    <section id="journey" class="focus-section py-24 border-b border-sandBorder">
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8">
+        <div>
+          <span class="text-[11px] uppercase tracking-widest text-mutedBrown font-bold">// THE CAREER HIGHWAY</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight mt-1">Interactive Milestone Journey</h2>
+        </div>
+        <span class="text-xs text-sageAccent font-mono mt-2 sm:mt-0 font-bold bg-sageAccent/10 px-3 py-1 rounded-full border border-sageAccent/20">
+          💡 Click symbols & use &larr; / &rarr; arrows to navigate
+        </span>
+      </div>
+
+      <!-- Horizontal Scroll Runway with Locked Height -->
+      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-6 px-6 no-scrollbar min-h-[460px] flex items-center">
+        <div id="road-track" class="relative min-w-[1250px] flex items-center justify-between py-6 gap-3 transition-all duration-500 w-full">
+          
+          <!-- Asphalt Road Running Directly Through All Stops -->
+          <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-16 bg-[#212524] rounded-3xl shadow-inner border-y-2 border-[#38403e] flex items-center pointer-events-none z-0">
+            <div class="w-full border-t-2 border-dashed border-[#F9F8F5]/30"></div>
+          </div>
+
+          <!-- Symbol 1: B.Tech (Index 0) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="0">
+            <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
+              
+              <!-- Collapsed Symbol View -->
+              <div class="symbol-collapsed flex flex-col items-center">
+                <div class="w-14 h-14 rounded-2xl bg-linen border border-sandBorder flex items-center justify-center text-darkCharcoal shadow-sm mb-3 group-hover:scale-110 transition-transform">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
+                <span class="text-[9px] font-mono font-bold text-mutedBrown uppercase">Milestone 01</span>
+                <h4 class="text-xs font-extrabold text-darkCharcoal mt-0.5">B.Tech in ECE</h4>
+                <p class="text-[10px] text-softOlive">Techno Main Salt Lake</p>
+                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2017 – 2021</div>
+              </div>
+
+              <!-- Expanded Detailed Content with Left/Right Nav -->
+              <div class="symbol-expanded hidden pt-1 text-left">
+                <div class="flex items-center gap-3">
+                  <button class="nav-arrow-btn" disabled aria-label="Previous Stop">&#8592;</button>
+
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#003366] text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
+                          TMSL
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 01 // Academics</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Techno Main Salt Lake</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
+                    </div>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">B.Tech in Electronics & Communication &bull; 2017–2021</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Built deep foundations in computational logic, analytical computation, and system architectures. Developed problem-solving rigor that anchors modern data governance and enterprise software delivery.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Digital Logic</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Systems Design</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Computation</span>
+                    </div>
+                  </div>
+
+                  <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Symbol 2: Cognizant (Index 1) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="1">
+            <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
+              
+              <!-- Collapsed Symbol View -->
+              <div class="symbol-collapsed flex flex-col items-center">
+                <div class="w-14 h-14 rounded-2xl bg-linen border border-sandBorder flex items-center justify-center text-sageAccent shadow-sm mb-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+                </div>
+                <span class="text-[9px] font-mono font-bold text-sageAccent uppercase">Software Engineer</span>
+                <h4 class="text-xs font-extrabold text-darkCharcoal mt-0.5">Cognizant</h4>
+                <p class="text-[10px] text-softOlive">Insurance Tech (21 Mos)</p>
+                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2021 – 2023</div>
+              </div>
+
+              <!-- Expanded Detailed Content with Left/Right Nav -->
+              <div class="symbol-expanded hidden pt-1 text-left">
+                <div class="flex items-center gap-3">
+                  <button onclick="event.stopPropagation(); navigateMilestone(0);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#000048] flex items-center justify-center p-1.5 shadow-sm border border-sandBorder flex-shrink-0">
+                          <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+                            <circle cx="50" cy="50" r="38" stroke="#1F69FF" stroke-width="12"/>
+                            <circle cx="50" cy="50" r="18" fill="#1F69FF"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 02 // Enterprise Tech</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Cognizant</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
+                    </div>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">Junior Software Engineer &bull; 21 Months (2021–2023)</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Delivered application reliability pipelines, defect triage, and automated incident resolution workflows for tier-1 global insurance clients. Collaborated across developer and operations squads to maintain 99.9% uptime.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Incident Triage</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Root Cause Analysis</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">SLA Governance</span>
+                    </div>
+                  </div>
+
+                  <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Symbol 3: GIM Goa Part 1 (Index 2) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="2">
+            <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
+              
+              <!-- Collapsed Symbol View -->
+              <div class="symbol-collapsed flex flex-col items-center">
+                <div class="w-14 h-14 rounded-2xl bg-linen border border-sandBorder flex items-center justify-center text-darkCharcoal shadow-sm mb-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                </div>
+                <span class="text-[9px] font-mono font-bold text-mutedBrown uppercase">MBA Entry</span>
+                <h4 class="text-xs font-extrabold text-darkCharcoal mt-0.5">GIM Goa</h4>
+                <p class="text-[10px] text-softOlive">PGDM Core Curriculum</p>
+                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2023</div>
+              </div>
+
+              <!-- Expanded Detailed Content with Left/Right Nav -->
+              <div class="symbol-expanded hidden pt-1 text-left">
+                <div class="flex items-center gap-3">
+                  <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
+                          GIM
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 03 // Leadership</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Goa Institute of Management</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
+                    </div>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Program Onboarding &bull; 2023</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Commenced advanced business management studies specializing in Product Strategy, Operations, and Business Analysis. Explored behavioral financial models and social cost-benefit analysis.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Product Strategy</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Operations Research</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Financial Modeling</span>
+                    </div>
+                  </div>
+
+                  <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Symbol 4: Tally Solutions (Index 3) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="3">
+            <div class="bg-[#f5ede3] border-2 border-dashed border-mutedBrown rounded-2xl p-4 shadow-md text-center">
+              
+              <!-- Collapsed Symbol View -->
+              <div class="symbol-collapsed flex flex-col items-center">
+                <div class="w-14 h-14 rounded-2xl bg-warmCard border border-mutedBrown flex items-center justify-center text-mutedBrown shadow-sm mb-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                </div>
+                <span class="inline-block bg-mutedBrown text-linen text-[8px] font-mono font-bold px-2 py-0.5 rounded-full uppercase mb-1">
+                  Internship Trip
+                </span>
+                <h4 class="text-xs font-extrabold text-darkCharcoal">Tally Solutions</h4>
+                <p class="text-[10px] text-softOlive">Product Management</p>
+                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Summer 2024</div>
+              </div>
+
+              <!-- Expanded Detailed Content with Left/Right Nav -->
+              <div class="symbol-expanded hidden pt-1 text-left">
+                <div class="flex items-center gap-3">
+                  <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#E85D04] text-white flex items-center justify-center font-black text-sm tracking-tighter shadow-sm border border-sandBorder flex-shrink-0">
+                          Tally
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 04 // Product Pitstop</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Tally Solutions</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
+                    </div>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">Product Management Intern &bull; Bangalore &bull; Summer 2024</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Led discovery initiatives and user empathy mapping to revamp core document-sharing workflows across accounting user personas. Defined MVP roadmaps and user story hierarchies for engineering handoff.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Persona Research</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">MVP Scoping</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">User Journey Maps</span>
+                    </div>
+                  </div>
+
+                  <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Symbol 5: GIM Goa Part 2 (Index 4) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="4">
+            <div class="bg-warmCard border border-sandBorder rounded-2xl p-4 shadow-md text-center">
+              
+              <!-- Collapsed Symbol View -->
+              <div class="symbol-collapsed flex flex-col items-center">
+                <div class="w-14 h-14 rounded-2xl bg-linen border border-sandBorder flex items-center justify-center text-darkCharcoal shadow-sm mb-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                </div>
+                <span class="text-[9px] font-mono font-bold text-mutedBrown uppercase">Graduation</span>
+                <h4 class="text-xs font-extrabold text-darkCharcoal mt-0.5">GIM Goa</h4>
+                <p class="text-[10px] text-softOlive">Strategy & Product Focus</p>
+                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-linen/80 px-2 py-0.5 rounded border border-sandBorder">2024 – 2025</div>
+              </div>
+
+              <!-- Expanded Detailed Content with Left/Right Nav -->
+              <div class="symbol-expanded hidden pt-1 text-left">
+                <div class="flex items-center gap-3">
+                  <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder flex-shrink-0">
+                          GIM
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-mutedBrown uppercase">Milestone 05 // Executive Degree</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">GIM Goa</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-linen px-2 py-1 rounded border border-sandBorder">✕ Close</button>
+                    </div>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Graduation (MBA Equivalent) &bull; 2024–2025</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Graduated with core competencies in enterprise systems modeling, agile scrum ceremonies, data modeling (Power BI), and business process re-engineering.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Agile Governance</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">Power BI Modeling</span>
+                      <span class="bg-linen px-2 py-0.5 rounded border border-sandBorder">BPMN Design</span>
+                    </div>
+                  </div>
+
+                  <button onclick="event.stopPropagation(); navigateMilestone(5);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Symbol 6: Accenture (Index 5) -->
+          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer" data-index="5">
+            <div class="bg-linen border-2 border-sageAccent rounded-2xl p-4 shadow-lg text-center">
+              
+              <!-- Collapsed Symbol View -->
+              <div class="symbol-collapsed flex flex-col items-center">
+                <div class="w-14 h-14 rounded-2xl bg-sageAccent text-linen flex items-center justify-center shadow-md mb-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                </div>
+                <span class="inline-block bg-sageAccent text-linen text-[8px] font-mono font-bold px-2.5 py-0.5 rounded-full uppercase mb-1">
+                  Current Destination
+                </span>
+                <h4 class="text-xs font-extrabold text-darkCharcoal">Accenture</h4>
+                <p class="text-[10px] text-sageAccent font-bold">Senior BA & Scrum Master</p>
+                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal bg-warmCard px-2 py-0.5 rounded border border-sandBorder">2025 – Present</div>
+              </div>
+
+              <!-- Expanded Detailed Content with Left/Right Nav -->
+              <div class="symbol-expanded hidden pt-1 text-left">
+                <div class="flex items-center gap-3">
+                  <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
+
+                  <div class="flex-grow min-w-0">
+                    <div class="flex items-center justify-between border-b border-sandBorder pb-3 mb-3">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#A100FF] text-white flex items-center justify-center font-black text-xl leading-none shadow-sm border border-sandBorder flex-shrink-0">
+                          &gt;
+                        </div>
+                        <div>
+                          <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 06 // Current Role</span>
+                          <h4 class="text-sm font-extrabold text-darkCharcoal">Accenture</h4>
+                        </div>
+                      </div>
+                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive hover:text-darkCharcoal font-bold bg-warmCard px-2 py-1 rounded border border-sandBorder">✕ Close</button>
+                    </div>
+
+                    <p class="text-xs font-semibold text-sageAccent mb-1">Senior Business Analyst & Scrum Master &bull; 2025–Present</p>
+                    <p class="text-xs text-darkCharcoal/80 leading-relaxed mb-3 font-normal">
+                      Leading cross-functional Agile sprint ceremonies, user story refinement, and commerce architectures across AEM and Adobe Commerce. Architected an organizational rule engine that significantly improved requirement compliance and data trust metrics.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder text-[10px] font-mono text-softOlive">
+                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Scrum Master</span>
+                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">AEM & Adobe Commerce</span>
+                      <span class="bg-warmCard px-2 py-0.5 rounded border border-sandBorder">Rule Engines</span>
+                    </div>
+                  </div>
+
+                  <button class="nav-arrow-btn" disabled aria-label="Next Stop">&#8594;</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      <p class="text-center text-xs text-softOlive font-mono">
+        ← Drag / swipe horizontally &bull; Use &larr; / &rarr; arrows to travel between stops →
+      </p>
+    </section>
+
+    <!-- ================= SECTION 3: WORK EXPERIENCE DETAILS ================= -->
+    <section id="work" class="focus-section py-24 border-b border-sandBorder">
+      <div class="flex items-baseline justify-between mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight">Selected Experience</h2>
+        <span class="text-[11px] uppercase tracking-widest text-softOlive font-semibold">[ 02 — Experience ]</span>
+      </div>
+
+      <div class="space-y-12">
+        
+        <!-- Experience 1: Accenture -->
+        <article class="card-float border border-sandBorder rounded-2xl bg-warmCard p-8 sm:p-10 hover:border-darkCharcoal/30">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder pb-5 mb-6">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-mutedBrown font-bold">2025 &ndash; Present</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal mt-1 tracking-tight">Accenture</h3>
+            </div>
+            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Senior Business Analyst & Scrum Master</span>
+          </div>
+
+          <p class="text-base text-darkCharcoal/85 leading-relaxed mb-6 font-normal">
+            Driving Agile sprint governance and functional requirements architecture for enterprise retail optical and commerce solutions.
+          </p>
+
+          <ul class="space-y-3 text-sm text-darkCharcoal/80 mb-6 border-l-2 border-sandBorder pl-5 font-normal">
+            <li>Facilitated end-to-end Agile ceremonies across multi-pod teams, managing backlog refinement, sprint planning, and release milestones.</li>
+            <li>Engineered an organizational data rule generation system, measurably lifting requirement compliance and data trust metrics.</li>
+            <li>Authored comprehensive functional specifications, bridging UX prototypes with Adobe Experience Manager (AEM) and Adobe Commerce platforms.</li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder text-xs text-softOlive uppercase tracking-wider font-semibold">
+            <span>Scrum Leadership</span> &bull; 
+            <span>AEM</span> &bull; 
+            <span>Adobe Commerce</span> &bull; 
+            <span>Azure DevOps</span> &bull; 
+            <span>Rule Engines</span>
+          </div>
+        </article>
+
+        <!-- Experience 2: Tally Solutions -->
+        <article class="card-float border border-sandBorder rounded-2xl bg-warmCard p-8 sm:p-10 hover:border-darkCharcoal/30">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder pb-5 mb-6">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-mutedBrown font-bold">Summer 2024</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal mt-1 tracking-tight">Tally Solutions</h3>
+            </div>
+            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Product Management Intern</span>
+          </div>
+
+          <p class="text-base text-darkCharcoal/85 leading-relaxed mb-6 font-normal">
+            Spearheaded product discovery initiatives to optimize core document-sharing user touchpoints.
+          </p>
+
+          <ul class="space-y-3 text-sm text-darkCharcoal/80 mb-6 border-l-2 border-sandBorder pl-5 font-normal">
+            <li>Conducted user empathy mapping and customer interviews across accounting personas to surface workflow bottlenecks.</li>
+            <li>Formulated the MVP scope, prioritized user stories, and built delivery roadmaps for software engineering handoff.</li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder text-xs text-softOlive uppercase tracking-wider font-semibold">
+            <span>Product Discovery</span> &bull; 
+            <span>Persona Mapping</span> &bull; 
+            <span>MVP Backlog</span> &bull; 
+            <span>UX Research</span>
+          </div>
+        </article>
+
+        <!-- Experience 3: Cognizant -->
+        <article class="card-float border border-sandBorder rounded-2xl bg-warmCard p-8 sm:p-10 hover:border-darkCharcoal/30">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder pb-5 mb-6">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-mutedBrown font-bold">21 Months</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal mt-1 tracking-tight">Cognizant</h3>
+            </div>
+            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Junior Software Engineer</span>
+          </div>
+
+          <p class="text-base text-darkCharcoal/85 leading-relaxed mb-6 font-normal">
+            Managed tier-level incident triage, system support, and defect resolution pipelines for global tier-1 insurance clients.
+          </p>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder text-xs text-softOlive uppercase tracking-wider font-semibold">
+            <span>Systems Triage</span> &bull; 
+            <span>Root Cause Analysis</span> &bull; 
+            <span>SLA Governance</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: DISCIPLINES ================= -->
+    <section id="disciplines" class="focus-section py-24 border-b border-sandBorder">
+      <div class="flex items-baseline justify-between mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight">Core Disciplines</h2>
+        <span class="text-[11px] uppercase tracking-widest text-softOlive font-semibold">[ 03 — Disciplines ]</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="card-float p-8 rounded-2xl border border-sandBorder bg-warmCard">
+          <h3 class="text-xl font-bold text-darkCharcoal mb-3">Agile Leadership</h3>
+          <p class="text-sm text-softOlive leading-relaxed mb-6 font-normal">
+            Sprint Facilitation, User Story Mapping, Backlog Grooming, Release Planning, Persona Discovery.
+          </p>
+          <div class="text-[11px] font-mono text-mutedBrown uppercase font-medium">Jira &bull; Azure DevOps &bull; Confluence</div>
+        </div>
+
+        <div class="card-float p-8 rounded-2xl border border-sandBorder bg-warmCard">
+          <h3 class="text-xl font-bold text-darkCharcoal mb-3">Data & Automation</h3>
+          <p class="text-sm text-softOlive leading-relaxed mb-6 font-normal">
+            Microsoft Power BI Dashboards, Power Automate ETL Flows, DAX Modeling, Automated HTML Reporting.
+          </p>
+          <div class="text-[11px] font-mono text-mutedBrown uppercase font-medium">Power BI &bull; Power Automate &bull; DAX</div>
+        </div>
+
+        <div class="card-float p-8 rounded-2xl border border-sandBorder bg-warmCard">
+          <h3 class="text-xl font-bold text-darkCharcoal mb-3">Agentic AI Workflows</h3>
+          <p class="text-sm text-softOlive leading-relaxed mb-6 font-normal">
+            Enterprise AI Reinvention, GitHub Copilot integration for requirements elicitation, GenAI Prompting.
+          </p>
+          <div class="text-[11px] font-mono text-mutedBrown uppercase font-medium">Agentic AI &bull; GenAI &bull; Copilot</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: CREDENTIALS & PEDIGREE ================= -->
+    <section id="pedigree" class="focus-section py-24 border-b border-sandBorder">
+      <div class="flex items-baseline justify-between mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal tracking-tight">Credentials & Pedigree</h2>
+        <span class="text-[11px] uppercase tracking-widest text-softOlive font-semibold">[ 04 — Pedigree ]</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="card-float p-6 rounded-xl border border-sandBorder bg-warmCard flex items-start justify-between">
+          <div>
+            <span class="text-[10px] uppercase tracking-widest text-sageAccent font-bold">Accenture Certified</span>
+            <h4 class="text-lg font-bold text-darkCharcoal mt-1">Reinvention with Agentic AI</h4>
+            <p class="text-xs text-softOlive mt-1 font-normal">Generative AI Enterprise Practice</p>
+          </div>
+          <span class="text-[10px] uppercase tracking-wider font-mono text-mutedBrown border border-sandBorder px-2.5 py-1 rounded bg-linen">Accredited</span>
+        </div>
+
+        <div class="card-float p-6 rounded-xl border border-sandBorder bg-warmCard flex items-start justify-between">
+          <div>
+            <span class="text-[10px] uppercase tracking-widest text-sageAccent font-bold">IIBA Accredited</span>
+            <h4 class="text-lg font-bold text-darkCharcoal mt-1">Entry Certificate in BA (ECBA™)</h4>
+            <p class="text-xs text-softOlive mt-1 font-normal">International Institute of Business Analysis</p>
+          </div>
+          <span class="text-[10px] uppercase tracking-wider font-mono text-mutedBrown border border-sandBorder px-2.5 py-1 rounded bg-linen">Accredited</span>
+        </div>
+
+        <div class="card-float p-6 rounded-xl border border-sandBorder bg-warmCard">
+          <span class="text-[10px] uppercase tracking-widest text-mutedBrown font-bold">Goa Institute of Management (GIM)</span>
+          <h4 class="text-lg font-bold text-darkCharcoal mt-1">Post Graduate Diploma in Management</h4>
+          <p class="text-xs text-softOlive mt-1 font-normal">Business Strategy, Operations & Product Leadership</p>
+        </div>
+
+        <div class="card-float p-6 rounded-xl border border-sandBorder bg-warmCard">
+          <span class="text-[10px] uppercase tracking-widest text-mutedBrown font-bold">Techno Main Salt Lake</span>
+          <h4 class="text-lg font-bold text-darkCharcoal mt-1">B.Tech in Electronics & Communication</h4>
+          <p class="text-xs text-softOlive mt-1 font-normal">Foundational Computation, Digital Systems & Logic Design</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: FOOTER ================= -->
+    <footer class="focus-section pt-24 pb-16 text-center">
+      <div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-darkCharcoal leading-tight mb-4 tracking-tight">
+          Let’s build meaningful products together.
+        </h2>
+        <p class="text-base text-softOlive max-w-md mx-auto mb-8 font-normal">
+          Open for Senior Business Analyst, Scrum Master, and Product Strategy opportunities.
+        </p>
+
+        <div class="mb-10">
+          <a href="mailto:nilayancworks@gmail.com" class="inline-block font-mono text-sm sm:text-base font-semibold text-darkCharcoal border-b-2 border-darkCharcoal pb-1 hover:text-sageAccent hover:border-sageAccent transition-colors">
+            nilayancworks@gmail.com
+          </a>
+        </div>
+        
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal bg-darkCharcoal text-linen px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal transition-all duration-300">
+            Send an Email &rarr;
+          </a>
+          <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="inline-block border border-darkCharcoal px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold text-darkCharcoal hover:bg-darkCharcoal hover:text-linen transition-all duration-300">
+            LinkedIn Profile ↗
+          </a>
+        </div>
+
+        <div class="mt-20 pt-8 border-t border-sandBorder flex flex-col sm:flex-row justify-between text-xs text-softOlive">
+          <span>&copy; 2026 Nilayan Chatterjee</span>
+          <span>Curated Portfolio Edition</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Scripts: Navigation & 2-Way Scroll Focus Trigger -->
+  <script>
+    // Image fallback sequence
+    function handleImageFallback(img) {
+      const extensions = ['profile.png', 'profile.jpeg', 'WhatsApp Image 2026-08-27 at 9.10.53 PM.jpeg'];
+      let currentAttempt = parseInt(img.dataset.attempt || 0);
+
+      if (currentAttempt < extensions.length) {
+        img.dataset.attempt = currentAttempt + 1;
+        img.src = extensions[currentAttempt];
+      } else {
+        img.classList.add('hidden');
+        document.getElementById('profile-fallback').classList.remove('hidden');
+      }
+    }
+
+    // Toggle and expand an individual milestone
+    function toggleSymbolMilestone(cardElement) {
+      const isAlreadyExpanded = cardElement.classList.contains('expanded');
+      const track = document.getElementById('road-track');
+      const allCards = document.querySelectorAll('.road-symbol-card');
+
+      if (isAlreadyExpanded) {
+        resetSymbolMilestones();
+        return;
+      }
+
+      track.classList.add('has-expanded');
+      allCards.forEach(c => {
+        c.classList.remove('expanded');
+        c.querySelector('.symbol-collapsed').classList.remove('hidden');
+        c.querySelector('.symbol-expanded').classList.add('hidden');
+      });
+
+      cardElement.classList.add('expanded');
+      cardElement.querySelector('.symbol-collapsed').classList.add('hidden');
+      cardElement.querySelector('.symbol-expanded').classList.remove('hidden');
+
+      // Horizontal container scroll only to prevent vertical layout shifting
+      const scrollContainer = document.getElementById('highway-scroll-container');
+      const cardOffset = cardElement.offsetLeft - scrollContainer.offsetLeft - (scrollContainer.clientWidth / 2) + (cardElement.clientWidth / 2);
+      scrollContainer.scrollTo({ left: cardOffset, behavior: 'smooth' });
+    }
+
+    // Programmatically navigate to target milestone index with arrows
+    function navigateMilestone(targetIndex) {
+      const allCards = document.querySelectorAll('.road-symbol-card');
+      if (targetIndex >= 0 && targetIndex < allCards.length) {
+        toggleSymbolMilestone(allCards[targetIndex]);
+      }
+    }
+
+    // Reset to collapsed view
+    function resetSymbolMilestones() {
+      const track = document.getElementById('road-track');
+      const allCards = document.querySelectorAll('.road-symbol-card');
+
+      track.classList.remove('has-expanded');
+      allCards.forEach(c => {
+        c.classList.remove('expanded');
+        c.querySelector('.symbol-collapsed').classList.remove('hidden');
+        c.querySelector('.symbol-expanded').classList.add('hidden');
+      });
+    }
+
+    // 2-Way Scroll Focus Trigger: Dynamically colors/discolors photo when entering/exiting view
+    document.addEventListener('DOMContentLoaded', () => {
+      const focusSections = document.querySelectorAll('.focus-section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-focus');
+          } else {
+            entry.target.classList.remove('in-focus');
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: '-20px 0px -20px 0px'
+      });
+
+      focusSections.forEach(section => observer.observe(section));
+    });
+  </script>
 
 </body>
 </html>
