@@ -419,24 +419,15 @@
         </a>
       </nav>
 
-      <!-- Right Control Group: Sliding Switch & Mobile Menu Hamburger -->
-      <div class="flex items-center space-x-3 sm:space-x-4">
-        <!-- Sliding Mode Switcher Button -->
-        <div onclick="toggleDarkMode()" class="theme-switch" role="button" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
-          <span class="theme-switch-icon">☀️</span>
-          <span class="theme-switch-icon">🌙</span>
-          <div class="theme-switch-handle"></div>
-        </div>
-
-        <!-- Mobile Menu Hamburger Toggle -->
-        <button onclick="toggleMobileMenu()" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 rounded-xl bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] text-darkCharcoal dark:text-[#E6E8E5] focus:outline-none">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </button>
-      </div>
-
-    </div>
+      <button class="icon-button" type="button" aria-label="Switch theme" data-theme-toggle="">
+        <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+        </svg>
+       <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" d="M12 3.2v2M12 18.8v2M3.2 12h2M18.8 12h2M5.7 5.7l1.4 1.4M16.9 16.9l1.4 1.4M18.3 5.7l-1.4 1.4M7.1 16.9l-1.4 1.4"></path>
+       </svg>
+      </button>
 
     <!-- Mobile Navigation Dropdown Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-linen dark:bg-[#121514] border-b border-sandBorder dark:border-[#2A322F] px-6 py-4 space-y-3">
