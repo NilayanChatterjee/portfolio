@@ -336,41 +336,6 @@
       color: #E6E8E5;
     }
 
-    .rv-cue-note {
-      position: absolute;
-      right: -3.5rem;
-      bottom: 1rem;
-      display: none;
-    }
-
-    @media (min-width: 1024px) {
-      .rv-cue-note {
-        display: block;
-      }
-    }
-
-    .rv-cue-txt {
-      font-family: serif;
-      font-style: italic;
-      font-size: 0.85rem;
-      color: #8B7A70;
-      line-height: 1.1;
-      display: block;
-    }
-    .dark .rv-cue-txt {
-      color: #9FA8A3;
-    }
-
-    .rv-cue-arw {
-      width: 44px;
-      height: 32px;
-      color: #8B7A70;
-      margin-top: 2px;
-    }
-    .dark .rv-cue-arw {
-      color: #9FA8A3;
-    }
-
     /* Sliding Theme Switcher Styles */
     .theme-switch {
       position: relative;
@@ -930,7 +895,7 @@
       </div>
       
       <p class="text-center text-xs text-softOlive dark:text-[#9FA8A3] font-mono">
-        ← Drag / swipe horizontally &bull; Use &larr; / &rarr; arrows to travel between stops →
+        ← Drag / swipe horizontally • Use ← / → arrows to travel between stops →
       </p>
     </section>
 
@@ -1283,7 +1248,7 @@
     const projectSpecs = [
       {
         badgeText: "Accenture &bull; Production Spec",
-        badgeBg: "bg-[#ede9fe] dark:bg-[#2e1065] text-[#6b21a8] dark:text-[#c084fc] border border-[#6b21a8]/30",
+        badgeBg: "bg-warmCard dark:bg-[#252D2A] text-sageAccent dark:text-[#829D94] border border-sandBorder dark:border-[#2A322F]",
         title: "Optical Commerce Platform Architecture",
         role: "Senior Business Analyst & Scrum Master &bull; Accenture",
         description: "End-to-end Agile sprint governance and functional requirements architecture bridging Figma UX prototypes with Adobe Experience Manager (AEM) and Adobe Commerce platform backends. Facilitated cross-functional ceremonies, epic refinement, and acceptance criteria authoring to eliminate requirement drift.",
@@ -1291,7 +1256,7 @@
       },
       {
         badgeText: "Accenture &bull; Core Innovation",
-        badgeBg: "bg-[#ccfbf1] dark:bg-[#042f2e] text-[#0f766e] dark:text-[#2dd4bf] border border-[#0f766e]/30",
+        badgeBg: "bg-warmCard dark:bg-[#252D2A] text-sageAccent dark:text-[#829D94] border border-sandBorder dark:border-[#2A322F]",
         title: "Organizational Data Rule Generation Engine",
         role: "Lead Business Analyst & System Architect &bull; Accenture",
         description: "Engineered and deployed an automated organizational rule-generation framework that governed enterprise compliance data. Measurably improved requirement precision, reduced manual validation lag, and elevated organization-wide data trust trust-scores.",
@@ -1299,7 +1264,7 @@
       },
       {
         badgeText: "Tally Solutions &bull; Product Discovery",
-        badgeBg: "bg-[#fef3c7] dark:bg-[#451a03] text-[#92400e] dark:text-[#fbbf24] border border-[#92400e]/30",
+        badgeBg: "bg-warmCard dark:bg-[#252D2A] text-sageAccent dark:text-[#829D94] border border-sandBorder dark:border-[#2A322F]",
         title: "Core Document-Sharing Workflow Revamp",
         role: "Product Management Intern &bull; Tally Solutions (Bangalore)",
         description: "Spearheaded user research and qualitative empathy interviews across accounting personas to uncover friction points in legacy file-sharing touchpoints. Formulated MVP scopes, user story hierarchies, and execution roadmaps for engineering pod handover.",
@@ -1307,7 +1272,7 @@
       },
       {
         badgeText: "Analytics & Workflow Automation",
-        badgeBg: "bg-[#e0e7ff] dark:bg-[#1e1b4b] text-[#3730a3] dark:text-[#818cf8] border border-[#3730a3]/30",
+        badgeBg: "bg-warmCard dark:bg-[#252D2A] text-sageAccent dark:text-[#829D94] border border-sandBorder dark:border-[#2A322F]",
         title: "Automated Power BI Dashboards & ETL Flows",
         role: "Analytics & Automation Lead",
         description: "Configured automated Microsoft Power Automate pipelines to extract Excel table data, format dynamic HTML content, and dispatch structured stakeholder report emails, backed by complex DAX models in Power BI.",
@@ -1325,7 +1290,7 @@
       sheet.classList.remove('hidden');
 
       document.getElementById('specBadge').innerHTML = spec.badgeText;
-      document.getElementById('specBadge').className = `inline-block text-[9px] font-mono font-bold uppercase px-2.5 py-1 rounded-md mb-2 ${spec.badgeBg}`;
+      document.getElementById('specBadge').className = `inline-block text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-md mb-3 ${spec.badgeBg}`;
       document.getElementById('specTitle').innerText = spec.title;
       document.getElementById('specRole').innerHTML = spec.role;
       document.getElementById('specDesc').innerText = spec.description;
@@ -1334,7 +1299,7 @@
       tagsContainer.innerHTML = '';
       spec.tags.forEach(tag => {
         const span = document.createElement('span');
-        span.className = "bg-linen dark:bg-[#1B201E] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]";
+        span.className = "bg-linen dark:bg-[#121514] px-2.5 py-1 rounded border border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]";
         span.innerText = tag;
         tagsContainer.appendChild(span);
       });
