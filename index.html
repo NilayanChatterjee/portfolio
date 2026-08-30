@@ -1183,7 +1183,7 @@
 
     // Image fallback sequence
     function handleImageFallback(img) {
-      const extensions = ['profile.png', 'profile.jpeg', 'WhatsApp Image 2026-08-27 at 9.10.53 PM.jpeg'];
+      const extensions = ['/assets/profile.jpeg', 'profile.png', 'profile.jpeg'];
       let currentAttempt = parseInt(img.dataset.attempt || 0);
 
       if (currentAttempt < extensions.length) {
