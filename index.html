@@ -66,9 +66,9 @@
 
     /* Scroll Focus Zoom System */
     .focus-section {
-      transform: scale(0.94) translateY(20px);
-      opacity: 0.4;
-      filter: blur(1px);
+      transform: scale(0.96) translateY(12px);
+      opacity: 0.5;
+      filter: blur(0.5px);
       transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
                   opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
                   filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
@@ -121,14 +121,14 @@
     }
 
     .road-symbol-card.expanded {
-      width: 530px !important;
+      width: min(480px, 90vw) !important;
       opacity: 1 !important;
       transform: scale(1.02) !important;
       z-index: 40 !important;
     }
 
     .has-expanded .road-symbol-card:not(.expanded) {
-      width: 96px !important;
+      width: 84px !important;
       opacity: 0.35 !important;
       transform: scale(0.82) !important;
       filter: grayscale(0.9);
@@ -177,7 +177,7 @@
       pointer-events: none;
     }
 
-    /* Dossier Folder Component Styles */
+    /* Consistent Dossier Folder Component Styles mapped to site theme */
     .rv-filewrap {
       display: flex;
       justify-content: center;
@@ -190,11 +190,16 @@
       width: 100%;
       background-color: #F2EFEB;
       border: 1px solid #E5DFD7;
-      border-radius: 18px;
-      padding: 2.25rem 2.5rem;
+      border-radius: 20px;
+      padding: 1.5rem;
       box-shadow: 0 16px 36px -12px rgba(26, 29, 28, 0.07);
       position: relative;
       transition: background-color 0.4s ease, border-color 0.4s ease;
+    }
+    @media (min-width: 640px) {
+      .rv-file {
+        padding: 2.25rem 2.5rem;
+      }
     }
     .dark .rv-file {
       background-color: #1B201E;
@@ -202,16 +207,17 @@
     }
 
     .rv-f-paper {
-      font-family: monospace;
-      font-size: 0.72rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
       text-transform: uppercase;
+      letter-spacing: 0.18em;
       color: #8B7A70;
-      letter-spacing: 1.5px;
+      font-weight: 700;
       margin-bottom: 0.75rem;
       display: inline-block;
       background: #EAE5DE;
-      padding: 3px 8px;
-      border-radius: 4px;
+      padding: 4px 10px;
+      border-radius: 6px;
     }
     .dark .rv-f-paper {
       background: #252D2A;
@@ -219,23 +225,28 @@
     }
 
     .rv-c-eyebrow {
-      font-size: 0.68rem;
-      font-family: monospace;
+      font-size: 11px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       text-transform: uppercase;
       color: #5A6E68;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 0.22em;
     }
     .dark .rv-c-eyebrow {
       color: #829D94;
     }
 
     .rv-c-title {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: #1A1D1C;
       letter-spacing: -0.5px;
       margin: 0.25rem 0 0.5rem 0;
+    }
+    @media (min-width: 640px) {
+      .rv-c-title {
+        font-size: 2.2rem;
+      }
     }
     .dark .rv-c-title {
       color: #E6E8E5;
@@ -253,23 +264,29 @@
 
     .rv-c-chart {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
       gap: 1rem;
       border-top: 1px solid #E5DFD7;
       padding-top: 1.25rem;
       margin-bottom: 1.75rem;
       transition: border-color 0.4s ease;
     }
+    @media (min-width: 640px) {
+      .rv-c-chart {
+        grid-template-columns: repeat(4, minmax(130px, 1fr));
+      }
+    }
     .dark .rv-c-chart {
       border-top-color: #2A322F;
     }
 
     .rv-c-chart dt {
-      font-size: 0.65rem;
-      font-family: monospace;
+      font-size: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       text-transform: uppercase;
       color: #8B7A70;
       font-weight: 700;
+      letter-spacing: 0.05em;
     }
     .dark .rv-c-chart dt {
       color: #9FA8A3;
@@ -292,19 +309,31 @@
     }
 
     .rv-ptab {
-      background-color: var(--tb);
-      color: var(--tf);
-      border: 1px solid rgba(0,0,0,0.06);
+      background-color: #F9F8F5;
+      color: #5A6E68;
+      border: 1px solid #E5DFD7;
       border-radius: 12px;
       padding: 0.5rem 1rem;
       font-size: 0.8rem;
       font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       cursor: pointer;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dark .rv-ptab {
+      background-color: #121514;
+      color: #9FA8A3;
+      border-color: #2A322F;
     }
 
     .rv-ptab:hover {
       transform: translateY(-2px);
+      border-color: #5A6E68;
+      color: #1A1D1C;
+    }
+    .dark .rv-ptab:hover {
+      border-color: #829D94;
+      color: #E6E8E5;
     }
 
     .rv-cue-note {
@@ -398,55 +427,74 @@
 </head>
 <body class="antialiased selection:bg-[#d9d2c9] dark:bg-[#121514] dark:text-[#E6E8E5] transition-colors duration-400">
 
-  <!-- Minimal Fixed Header with NC Monogram Icon & Integrated Sliding Theme Switch -->
+  <!-- Minimal Responsive Header with NC Monogram, Mobile Nav Toggle, & Sliding Theme Switch -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-[#F9F8F5]/85 dark:bg-[#121514]/85 backdrop-blur-md border-b border-sandBorder dark:border-[#2A322F] transition-all duration-300">
-    <div class="max-w-5xl mx-auto px-6 py-3.5 flex items-center justify-between">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
       
       <!-- Monogram Icon + Name Brand -->
       <a href="#intro" class="group flex items-center space-x-2.5 tracking-tight hover:opacity-80 transition-opacity">
         <span class="w-7 h-7 rounded-lg bg-darkCharcoal dark:bg-[#E6E8E5] text-linen dark:text-[#121514] flex items-center justify-center font-extrabold text-[11px] tracking-tight shadow-sm group-hover:bg-sageAccent transition-colors">
           NC
         </span>
-        <span class="font-extrabold text-lg text-darkCharcoal dark:text-[#E6E8E5]">
+        <span class="font-extrabold text-base sm:text-lg text-darkCharcoal dark:text-[#E6E8E5] truncate max-w-[160px] sm:max-w-none">
           Nilayan Chatterjee<span class="text-sageAccent">.</span>
         </span>
       </a>
 
-      <!-- Right Navigation Items (Links + Sliding Toggle) -->
-      <div class="flex items-center space-x-6 sm:space-x-8">
-        <div class="hidden md:flex items-center space-x-6 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive dark:text-[#9FA8A3]">
-          <a href="#profile" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">About</a>
-          <a href="#journey" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Highway</a>
-          <a href="#projects" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Projects</a>
-          <a href="#work" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Work</a>
-          <a href="#disciplines" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Disciplines</a>
-          <a href="#pedigree" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Pedigree</a>
-          <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="text-darkCharcoal dark:text-[#E6E8E5] border-b border-darkCharcoal dark:border-[#E6E8E5] pb-0.5 hover:opacity-60 transition-opacity">
-            LinkedIn ↗
-          </a>
-        </div>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center space-x-6 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive dark:text-[#9FA8A3]">
+        <a href="#profile" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">About</a>
+        <a href="#journey" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Highway</a>
+        <a href="#projects" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Projects</a>
+        <a href="#work" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Work</a>
+        <a href="#disciplines" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Disciplines</a>
+        <a href="#pedigree" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Pedigree</a>
+        <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="text-darkCharcoal dark:text-[#E6E8E5] border-b border-darkCharcoal dark:border-[#E6E8E5] pb-0.5 hover:opacity-60 transition-opacity">
+          LinkedIn ↗
+        </a>
+      </nav>
 
+      <!-- Right Control Group: Sliding Switch & Mobile Menu Hamburger -->
+      <div class="flex items-center space-x-3 sm:space-x-4">
         <!-- Sliding Mode Switcher Button -->
         <div onclick="toggleDarkMode()" class="theme-switch" role="button" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
           <span class="theme-switch-icon">☀️</span>
           <span class="theme-switch-icon">🌙</span>
           <div class="theme-switch-handle"></div>
         </div>
+
+        <!-- Mobile Menu Hamburger Toggle -->
+        <button onclick="toggleMobileMenu()" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 rounded-xl bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] text-darkCharcoal dark:text-[#E6E8E5] focus:outline-none">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
       </div>
 
+    </div>
+
+    <!-- Mobile Navigation Dropdown Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-linen dark:bg-[#121514] border-b border-sandBorder dark:border-[#2A322F] px-6 py-4 space-y-3">
+      <a href="#profile" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">About</a>
+      <a href="#journey" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Highway</a>
+      <a href="#projects" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Projects</a>
+      <a href="#work" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Work</a>
+      <a href="#disciplines" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Disciplines</a>
+      <a href="#pedigree" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Pedigree</a>
+      <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="block text-xs uppercase tracking-widest font-semibold text-darkCharcoal dark:text-[#E6E8E5] pt-2 border-t border-sandBorder dark:border-[#2A322F]">LinkedIn Profile ↗</a>
     </div>
   </header>
 
   <!-- ================= SECTION 0: FULL-SCREEN INTRO ================= -->
-  <section id="intro" class="focus-section in-focus min-h-screen flex flex-col justify-between items-center text-center px-6 pt-36 pb-12 relative border-b border-sandBorder dark:border-[#2A322F]">
+  <section id="intro" class="focus-section in-focus min-h-screen flex flex-col justify-between items-center text-center px-4 sm:px-6 pt-36 pb-12 relative border-b border-sandBorder dark:border-[#2A322F]">
     <div></div>
 
     <div class="max-w-4xl mx-auto my-auto py-12">
-      <p class="text-lg sm:text-xl font-medium text-softOlive dark:text-[#9FA8A3] mb-3">Hello, nice to meet you.</p>
-      <h1 class="text-6xl sm:text-8xl md:text-9xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight leading-[0.95] mb-6">
+      <p class="text-base sm:text-xl font-medium text-softOlive dark:text-[#9FA8A3] mb-3">Hello, nice to meet you.</p>
+      <h1 class="text-5xl sm:text-7xl md:text-9xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight leading-[0.95] mb-6">
         I Am <span class="italic font-normal text-mutedBrown dark:text-[#A89890]">Nilayan</span>.
       </h1>
-      <p class="text-lg sm:text-2xl text-darkCharcoal/80 dark:text-[#E6E8E5]/80 font-normal max-w-2xl mx-auto leading-relaxed">
+      <p class="text-base sm:text-2xl text-darkCharcoal/80 dark:text-[#E6E8E5]/80 font-normal max-w-2xl mx-auto leading-relaxed">
         Senior Business Analyst, AI-enabled Product Strategist.
       </p>
     </div>
@@ -461,16 +509,16 @@
   </section>
 
   <!-- Main Container -->
-  <main class="max-w-5xl mx-auto px-6">
+  <main class="max-w-5xl mx-auto px-4 sm:px-6">
 
     <!-- ================= SECTION 1: PHOTO + EXECUTIVE SUMMARY ================= -->
-    <section id="profile" class="focus-section py-24 sm:py-32 border-b border-sandBorder dark:border-[#2A322F]">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+    <section id="profile" class="focus-section py-20 sm:py-32 border-b border-sandBorder dark:border-[#2A322F]">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 items-center">
         
         <!-- Portrait Image with 2-Way Dynamic Scroll Color Switch -->
         <div class="md:col-span-5 flex justify-center md:justify-start">
           <div class="relative group">
-            <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border border-sandBorder dark:border-[#2A322F] shadow-sm bg-warmCard dark:bg-[#1B201E] relative flex items-center justify-center">
+            <div class="w-60 h-72 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border border-sandBorder dark:border-[#2A322F] shadow-sm bg-warmCard dark:bg-[#1B201E] relative flex items-center justify-center">
               
               <img id="profile-img" 
                    src="profile.jpg" 
@@ -499,11 +547,11 @@
             Executive Summary
           </div>
           
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight leading-snug mb-6">
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight leading-snug mb-6">
             Translating complex enterprise vision into high-impact digital products.
           </h2>
 
-          <div class="space-y-4 text-darkCharcoal/80 dark:text-[#E6E8E5]/80 text-base leading-relaxed font-normal mb-8">
+          <div class="space-y-4 text-darkCharcoal/80 dark:text-[#E6E8E5]/80 text-sm sm:text-base leading-relaxed font-normal mb-8">
             <p>
               I am a dual-disciplined engineering and management professional based in Kolkata, working at the intersection of product discovery, agile execution, and next-gen AI enablement.
             </p>
@@ -513,7 +561,7 @@
           </div>
 
           <!-- Direct CTAs -->
-          <div class="flex flex-wrap items-center gap-4 mb-8">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
             <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#E6E8E5] text-linen dark:text-[#121514] px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-all duration-300">
               Email Me &rarr;
             </a>
@@ -547,12 +595,12 @@
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8">
         <div>
           <span class="text-[11px] uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">// THE CAREER HIGHWAY</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-1">Interactive Milestone Journey</h2>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-1">Interactive Milestone Journey</h2>
         </div>
       </div>
 
       <!-- Horizontal Scroll Runway with Locked Height -->
-      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-6 px-6 no-scrollbar min-h-[460px] flex items-center">
+      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-4 sm:-mx-6 px-4 sm:px-6 no-scrollbar min-h-[460px] flex items-center">
         <div id="road-track" class="relative min-w-[1250px] flex items-center justify-between py-6 gap-3 transition-all duration-500 w-full">
           
           <!-- Asphalt Road Running Directly Through All Stops -->
@@ -891,7 +939,7 @@
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8">
         <div>
           <span class="text-[11px] uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">// THE ARCHIVE &amp; BLUEPRINTS</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-1">Featured Project Dossier</h2>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-1">Featured Project Dossier</h2>
         </div>
       </div>
 
@@ -928,10 +976,10 @@
           </div>
 
           <div class="rv-pocket" id="rvPocket">
-            <button onclick="loadProjectSpec(0)" class="rv-ptab" style="--tb:#ede9fe;--tf:#6b21a8" aria-label="Open Optical Commerce"><span class="rv-pt-name">🛒 Optical Commerce</span></button>
-            <button onclick="loadProjectSpec(1)" class="rv-ptab" style="--tb:#ccfbf1;--tf:#0f766e" aria-label="Open Rule Engine"><span class="rv-pt-name">⚙️ Rule Engine</span></button>
-            <button onclick="loadProjectSpec(2)" class="rv-ptab" style="--tb:#fef3c7;--tf:#92400e" aria-label="Open Sharing Workflow"><span class="rv-pt-name">🧭 Sharing Workflow</span></button>
-            <button onclick="loadProjectSpec(3)" class="rv-ptab" style="--tb:#e0e7ff;--tf:#3730a3" aria-label="Open BI & Automation"><span class="rv-pt-name">📊 BI & Automation</span></button>
+            <button onclick="loadProjectSpec(0)" class="rv-ptab" aria-label="Open Optical Commerce"><span class="rv-pt-name">🛒 Optical Commerce</span></button>
+            <button onclick="loadProjectSpec(1)" class="rv-ptab" aria-label="Open Rule Engine"><span class="rv-pt-name">⚙️ Rule Engine</span></button>
+            <button onclick="loadProjectSpec(2)" class="rv-ptab" aria-label="Open Sharing Workflow"><span class="rv-pt-name">🧭 Sharing Workflow</span></button>
+            <button onclick="loadProjectSpec(3)" class="rv-ptab" aria-label="Open BI & Automation"><span class="rv-pt-name">📊 BI & Automation</span></button>
           </div>
 
           <div class="rv-cue-note" aria-hidden="true">
@@ -945,7 +993,7 @@
     <!-- ================= SECTION 3: WORK EXPERIENCE DETAILS ================= -->
     <section id="work" class="focus-section py-24 border-b border-sandBorder dark:border-[#2A322F]">
       <div class="flex items-baseline justify-between mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight">Selected Experience</h2>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight">Selected Experience</h2>
         <span class="text-[11px] uppercase tracking-widest text-softOlive dark:text-[#9FA8A3] font-semibold">[ 02 — Experience ]</span>
       </div>
 
@@ -1034,7 +1082,7 @@
     <!-- ================= SECTION 4: DISCIPLINES ================= -->
     <section id="disciplines" class="focus-section py-24 border-b border-sandBorder dark:border-[#2A322F]">
       <div class="flex items-baseline justify-between mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight">Core Disciplines</h2>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight">Core Disciplines</h2>
         <span class="text-[11px] uppercase tracking-widest text-softOlive dark:text-[#9FA8A3] font-semibold">[ 03 — Disciplines ]</span>
       </div>
 
@@ -1070,7 +1118,7 @@
     <!-- ================= SECTION 5: CREDENTIALS & PEDIGREE ================= -->
     <section id="pedigree" class="focus-section py-24 border-b border-sandBorder dark:border-[#2A322F]">
       <div class="flex items-baseline justify-between mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight">Credentials & Pedigree</h2>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight">Credentials & Pedigree</h2>
         <span class="text-[11px] uppercase tracking-widest text-softOlive dark:text-[#9FA8A3] font-semibold">[ 04 — Pedigree ]</span>
       </div>
 
@@ -1112,7 +1160,7 @@
     <!-- ================= SECTION 6: FOOTER ================= -->
     <footer class="focus-section pt-24 pb-16 text-center">
       <div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] leading-tight mb-4 tracking-tight">
+        <h2 class="text-2xl sm:text-5xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] leading-tight mb-4 tracking-tight">
           Let’s build meaningful products together.
         </h2>
         <p class="text-base text-softOlive dark:text-[#9FA8A3] max-w-md mx-auto mb-8 font-normal">
@@ -1149,6 +1197,12 @@
       const html = document.documentElement;
       const isDark = html.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    // Mobile Menu Toggle Logic
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
     }
 
     // Initialize Theme on Load
@@ -1278,7 +1332,7 @@
 
       const tagsContainer = document.getElementById('specTags');
       tagsContainer.innerHTML = '';
-      spec.tags.exports = spec.tags.forEach(tag => {
+      spec.tags.forEach(tag => {
         const span = document.createElement('span');
         span.className = "bg-linen dark:bg-[#1B201E] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]";
         span.innerText = tag;
