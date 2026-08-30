@@ -339,49 +339,38 @@
       color: #E6E8E5;
     }
 
-    /* Sliding Theme Switcher Styles */
-    .theme-switch {
-      position: relative;
-      width: 58px;
-      height: 30px;
-      background-color: #1A1D1C;
+    /* Theme Toggle Button Styles matching target design */
+    .icon-button {
+      width: 38px;
+      height: 38px;
       border-radius: 9999px;
+      background-color: #F2EFEB;
       border: 1px solid #E5DFD7;
-      cursor: pointer;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 6px;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #1A1D1C;
+      flex-shrink: 0;
     }
-    .dark .theme-switch {
-      background-color: #E6E8E5;
+    .dark .icon-button {
+      background-color: #1B201E;
       border-color: #2A322F;
+      color: #E6E8E5;
     }
-
-    .theme-switch-handle {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 22px;
-      height: 22px;
-      background-color: #F9F8F5;
-      border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
-      z-index: 2;
+    .icon-button:hover {
+      transform: scale(1.08);
+      border-color: #5A6E68;
     }
-    .dark .theme-switch-handle {
-      transform: translateX(28px);
-      background-color: #121514;
+    .icon-button .icon {
+      width: 18px;
+      height: 18px;
     }
-
-    .theme-switch-icon {
-      font-size: 11px;
-      z-index: 1;
-      user-select: none;
-      line-height: 1;
-    }
+    .icon-button .icon--sun { display: none; }
+    .icon-button .icon--moon { display: block; }
+    .dark .icon-button .icon--sun { display: block; }
+    .dark .icon-button .icon--moon { display: none; }
 
     /* Bouncing Scroll Cue */
     @keyframes bounceSlow {
@@ -395,7 +384,7 @@
 </head>
 <body class="antialiased selection:bg-[#d9d2c9] dark:bg-[#121514] dark:text-[#E6E8E5] transition-colors duration-400">
 
-  <!-- Minimal Responsive Header with Name Brand, Mobile Nav Toggle, & Sliding Theme Switch (NC badge moved to Favicon) -->
+  <!-- Minimal Responsive Header with Name Brand, Mobile Nav Toggle, & Theme Toggle Button -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-[#F9F8F5]/85 dark:bg-[#121514]/85 backdrop-blur-md border-b border-sandBorder dark:border-[#2A322F] transition-all duration-300">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
       
@@ -406,19 +395,22 @@
         </span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center space-x-6 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive dark:text-[#9FA8A3]">
-        <a href="#profile" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">About</a>
-        <a href="#journey" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Highway</a>
-        <a href="#projects" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Projects</a>
-        <a href="#work" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Work</a>
-        <a href="#disciplines" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Disciplines</a>
-        <a href="#pedigree" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Pedigree</a>
-        <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="text-darkCharcoal dark:text-[#E6E8E5] border-b border-darkCharcoal dark:border-[#E6E8E5] pb-0.5 hover:opacity-60 transition-opacity">
-          LinkedIn ↗
-        </a>
-        <!-- Requested Theme Toggle Button -->
-        <button class="icon-button" type="button" aria-label="Switch theme" data-theme-toggle="">
+      <!-- Desktop Navigation Links & Theme Button grouped together on the right -->
+      <div class="flex items-center space-x-6">
+        <nav class="hidden lg:flex items-center space-x-6 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive dark:text-[#9FA8A3]">
+          <a href="#profile" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">About</a>
+          <a href="#journey" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Highway</a>
+          <a href="#projects" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Projects</a>
+          <a href="#work" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Work</a>
+          <a href="#disciplines" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Disciplines</a>
+          <a href="#pedigree" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Pedigree</a>
+          <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="text-darkCharcoal dark:text-[#E6E8E5] border-b border-darkCharcoal dark:border-[#E6E8E5] pb-0.5 hover:opacity-60 transition-opacity">
+            LinkedIn ↗
+          </a>
+        </nav>
+        
+        <!-- Theme Toggle Button correctly positioned and linked -->
+        <button class="icon-button" type="button" aria-label="Switch theme" data-theme-toggle>
           <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
           </svg>
@@ -428,9 +420,9 @@
           </svg>
         </button>
       </div>
-      </nav>
-      
-      
+
+    </div>
+
     <!-- Mobile Navigation Dropdown Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-linen dark:bg-[#121514] border-b border-sandBorder dark:border-[#2A322F] px-6 py-4 space-y-3">
       <a href="#profile" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">About</a>
@@ -1148,23 +1140,23 @@
 
   </main>
 
-  <!-- Scripts: Navigation, Sliding Dark Mode Toggle & 2-Way Scroll Focus Trigger -->
+  <!-- Scripts: Navigation, Theme Toggle Button & 2-Way Scroll Focus Trigger -->
   <script>
-    // Dark Mode Toggle Logic
+    // Theme Toggle Functionality
     function toggleDarkMode() {
       const html = document.documentElement;
       const isDark = html.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
-    // Mobile Menu Toggle Logic
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
-    }
-
-    // Initialize Theme on Load
+    // Attach click handler to theme button element
     document.addEventListener('DOMContentLoaded', () => {
+      const themeToggleBtn = document.querySelector('[data-theme-toggle]');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', toggleDarkMode);
+      }
+
+      // Initialize Theme on Load
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
@@ -1173,6 +1165,12 @@
         document.documentElement.classList.remove('dark');
       }
     });
+
+    // Mobile Menu Toggle Logic
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) menu.classList.toggle('hidden');
+    }
 
     // Image fallback sequence
     function handleImageFallback(img) {
