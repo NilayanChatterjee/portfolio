@@ -101,104 +101,11 @@
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.4s ease;
     }
     .card-float:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: 0 16px 32px -8px rgba(26, 29, 28, 0.08);
     }
     .dark .card-float:hover {
       box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4);
-    }
-
-    /* Hide horizontal scrollbars */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* Road Milestone Symbol Container & Accordion */
-    .road-symbol-card {
-      transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform, width, opacity;
-    }
-
-    .road-symbol-card.expanded {
-      width: min(480px, 90vw) !important;
-      opacity: 1 !important;
-      transform: scale(1.02) !important;
-      z-index: 40 !important;
-    }
-
-    .has-expanded .road-symbol-card:not(.expanded) {
-      width: 84px !important;
-      opacity: 0.35 !important;
-      transform: scale(0.82) !important;
-      filter: grayscale(0.9);
-    }
-
-    .has-expanded .road-symbol-card:not(.expanded):hover {
-      opacity: 0.85 !important;
-      filter: grayscale(0);
-      transform: scale(0.9) !important;
-    }
-
-    /* Animated Walking Traveler Avatar on the Highway */
-    #traveler-avatar {
-      position: absolute;
-      top: -24px;
-      left: 20px;
-      width: 48px;
-      height: 48px;
-      transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 20;
-      pointer-events: none;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-    }
-
-    @keyframes travelerBounce {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-4px) rotate(2deg); }
-    }
-    .traveler-bobbing {
-      animation: travelerBounce 0.6s ease-in-out infinite;
-    }
-
-    /* Navigation Arrows beside the card */
-    .nav-arrow-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 9999px;
-      background: #F9F8F5;
-      border: 1px solid #E5DFD7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1A1D1C;
-      font-weight: bold;
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-    }
-    .dark .nav-arrow-btn {
-      background: #1B201E;
-      border-color: #2A322F;
-      color: #E6E8E5;
-    }
-    .nav-arrow-btn:hover {
-      background: #1A1D1C;
-      color: #F9F8F5;
-      border-color: #1A1D1C;
-      transform: scale(1.08);
-    }
-    .dark .nav-arrow-btn:hover {
-      background: #E6E8E5;
-      color: #121514;
-      border-color: #E6E8E5;
-    }
-    .nav-arrow-btn:disabled {
-      opacity: 0.25;
-      cursor: not-allowed;
-      pointer-events: none;
     }
 
     /* Consistent Dossier Folder Component Styles mapped to site theme */
@@ -420,7 +327,7 @@
       <div class="flex items-center space-x-6">
         <nav class="hidden lg:flex items-center space-x-6 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive dark:text-[#9FA8A3]">
           <a href="#profile" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">About</a>
-          <a href="#journey" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Highway</a>
+          <a href="#journey" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Milestones</a>
           <a href="#projects" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Projects</a>
           <a href="#work" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Work</a>
           <a href="#disciplines" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Disciplines</a>
@@ -447,7 +354,7 @@
     <!-- Mobile Navigation Dropdown Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-linen dark:bg-[#121514] border-b border-sandBorder dark:border-[#2A322F] px-6 py-4 space-y-3">
       <a href="#profile" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">About</a>
-      <a href="#journey" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Highway</a>
+      <a href="#journey" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Milestones</a>
       <a href="#projects" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Projects</a>
       <a href="#work" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Work</a>
       <a href="#disciplines" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Disciplines</a>
@@ -561,358 +468,80 @@
       </div>
     </section>
 
-    <!-- ================= SECTION 2: ROAD HIGHWAY ================= -->
+    <!-- ================= SECTION 2: COMPACT HORIZONTAL MILESTONE MAP ================= -->
     <section id="journey" class="focus-section py-24 border-b border-sandBorder dark:border-[#2A322F]">
-      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12">
         <div>
-          <span class="text-[11px] uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">// THE CAREER HIGHWAY</span>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-1">Interactive Milestone Journey</h2>
+          <span class="text-[11px] uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">// THE CAREER ROADMAP</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-1">Milestone Overview</h2>
         </div>
+        <span class="text-xs font-mono text-softOlive dark:text-[#9FA8A3] mt-2 sm:mt-0">All Stops At-A-Glance</span>
       </div>
 
-      <!-- Horizontal Scroll Runway with Locked Height -->
-      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-4 sm:-mx-6 px-4 sm:px-6 no-scrollbar min-h-[460px] flex items-center relative">
+      <!-- 6-Column Grid Layout (Fully Visible Without Scrolling) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         
-        <div id="road-track" class="relative min-w-[1250px] flex items-center justify-between py-6 gap-3 transition-all duration-500 w-full">
-          
-          <!-- Asphalt Road Running Directly Through All Stops -->
-          <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-16 bg-[#212524] rounded-3xl shadow-inner border-y-2 border-[#38403e] flex items-center pointer-events-none z-0">
-            <div class="w-full border-t-2 border-dashed border-[#F9F8F5]/30"></div>
+        <!-- Step 1: B.Tech -->
+        <div class="card-float bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 overflow-hidden p-1">
+            <img src="assets/TechnoMain.png" alt="Techno Main Logo" class="w-full h-full object-contain">
           </div>
-
-          <!-- Animated Walking Traveler Avatar -->
-          <div id="traveler-avatar" class="traveler-bobbing">
-            <svg viewBox="0 0 64 64" fill="none" class="w-full h-full">
-              <!-- Traveler Pack/Body -->
-              <circle cx="32" cy="18" r="8" fill="#5A6E68"/>
-              <path d="M22 32C22 27.5817 25.5817 24 30 24H34C38.4183 24 42 27.5817 42 32V42H22V32Z" fill="#767F74"/>
-              <rect x="25" y="42" width="5" height="16" rx="2.5" fill="#1A1D1C" class="dark:fill-[#E6E8E5]"/>
-              <rect x="34" y="42" width="5" height="16" rx="2.5" fill="#1A1D1C" class="dark:fill-[#E6E8E5]"/>
-              <circle cx="38" cy="20" r="3" fill="#8B7A70"/>
-            </svg>
-          </div>
-
-          <!-- Symbol 1: B.Tech (Index 0) -->
-          <div onclick="toggleSymbolMilestone(this); moveTraveler(0);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="0">
-            <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                  <img src="assets/TechnoMain.png" alt="Techno Main Logo" class="w-full h-full object-contain">
-                </div>
-                <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 01</span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">B.Tech in ECE</h4>
-                <p class="text-[10px] text-softOlive dark:text-[#9FA8A3]">Techno Main Salt Lake</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal dark:text-[#E6E8E5] bg-linen/80 dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">2017 – 2021</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button class="nav-arrow-btn" disabled aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                          <img src="assets/TechnoMain.png" alt="Techno Main Logo" class="w-full h-full object-contain">
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 01 // Academics</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">Techno Main Salt Lake</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5] font-bold bg-linen dark:bg-[#252D2A] px-2 py-1 rounded border border-sandBorder dark:border-[#2A322F]">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">B.Tech in Electronics & Communication &bull; 2017–2021</p>
-                    <p class="text-xs text-darkCharcoal/80 dark:text-[#E6E8E5]/80 leading-relaxed mb-3 font-normal">
-                      Built deep foundations in computational logic, analytical computation, and system architectures. Developed problem-solving rigor that anchors modern data governance and enterprise software delivery.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]">
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Digital Logic</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Systems Design</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Computation</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 2: Cognizant (Index 1) -->
-          <div onclick="toggleSymbolMilestone(this); moveTraveler(1);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="1">
-            <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                  <img src="assets/cogni.jpg" alt="Cognizant Logo" class="w-full h-full object-contain">
-                </div>
-                <span class="text-[9px] font-mono font-bold text-sageAccent uppercase">Software Engineer</span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">Cognizant</h4>
-                <p class="text-[10px] text-softOlive dark:text-[#9FA8A3]">Insurance Tech (21 Mos)</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal dark:text-[#E6E8E5] bg-linen/80 dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">2021 – 2023</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(0);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                          <img src="assets/cogni.jpg" alt="Cognizant Logo" class="w-full h-full object-contain">
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 02 // Enterprise Tech</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">Cognizant</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5] font-bold bg-linen dark:bg-[#252D2A] px-2 py-1 rounded border border-sandBorder dark:border-[#2A322F]">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">Junior Software Engineer &bull; 21 Months (2021–2023)</p>
-                    <p class="text-xs text-darkCharcoal/80 dark:text-[#E6E8E5]/80 leading-relaxed mb-3 font-normal">
-                      Delivered application reliability pipelines, defect triage, and automated incident resolution workflows for tier-1 global insurance clients. Collaborated across developer and operations squads to maintain 99.9% uptime.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]">
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Incident Triage</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Root Cause Analysis</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">SLA Governance</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 3: GIM Goa Part 1 (Index 2) -->
-          <div onclick="toggleSymbolMilestone(this); moveTraveler(2);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="2">
-            <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                  <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
-                </div>
-                <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">MBA Entry</span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">GIM Goa</h4>
-                <p class="text-[10px] text-softOlive dark:text-[#9FA8A3]">PGDM Core Curriculum</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal dark:text-[#E6E8E5] bg-linen/80 dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">2023-2024</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(1);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                          <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 03 // Leadership</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">Goa Institute of Management</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5] font-bold bg-linen dark:bg-[#252D2A] px-2 py-1 rounded border border-sandBorder dark:border-[#2A322F]">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Program Onboarding &bull; 2023-2024</p>
-                    <p class="text-xs text-darkCharcoal/80 dark:text-[#E6E8E5]/80 leading-relaxed mb-3 font-normal">
-                      Commenced advanced business management studies specializing in Product Strategy, Operations, and Business Analysis. Explored behavioral financial models and social cost-benefit analysis.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]">
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Product Strategy</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Operations Research</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Financial Modeling</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 4: Tally Solutions (Index 3) -->
-          <div onclick="toggleSymbolMilestone(this); moveTraveler(3);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="3">
-            <div class="bg-[#f5ede3] dark:bg-[#25221E] border-2 border-dashed border-mutedBrown dark:border-[#6B5B52] rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                  <img src="assets/Tally.jpg" alt="Tally Solutions Logo" class="w-full h-full object-contain">
-                </div>
-                <span class="inline-block bg-mutedBrown dark:text-[#121514] text-linen text-[8px] font-mono font-bold px-2 py-0.5 rounded-full uppercase mb-1">
-                  Internship
-                </span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">Tally Solutions</h4>
-                <p class="text-[10px] text-softOlive dark:text-[#9FA8A3]">Product Management</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal dark:text-[#E6E8E5] bg-warmCard dark:bg-[#1B201E] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Summer 2024</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(2);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                          <img src="assets/Tally.jpg" alt="Tally Solutions Logo" class="w-full h-full object-contain">
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 04 // Product Pitstop</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">Tally Solutions</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5] font-bold bg-linen dark:bg-[#252D2A] px-2 py-1 rounded border border-sandBorder dark:border-[#2A322F]">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">Product Management Intern &bull; Bangalore &bull; Summer 2024</p>
-                    <p class="text-xs text-darkCharcoal/80 dark:text-[#E6E8E5]/80 leading-relaxed mb-3 font-normal">
-                      Led discovery initiatives and user empathy mapping to revamp core document-sharing workflows across accounting user personas. Defined MVP roadmaps and user story hierarchies for engineering handoff.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]">
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Persona Research</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">MVP Scoping</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">User Journey Maps</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 5: GIM Goa Part 2 (Index 4) -->
-          <div onclick="toggleSymbolMilestone(this); moveTraveler(4);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="4">
-            <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                  <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
-                </div>
-                <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Graduation</span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">GIM Goa</h4>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal dark:text-[#E6E8E5] bg-linen/80 dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">2024 – 2025</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(3);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                          <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 05 // Executive Degree</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">GIM Goa</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5] font-bold bg-linen dark:bg-[#252D2A] px-2 py-1 rounded border border-sandBorder dark:border-[#2A322F]">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">PGDM Graduation (MBA Equivalent) &bull; 2024–2025</p>
-                    <p class="text-xs text-darkCharcoal/80 dark:text-[#E6E8E5]/80 leading-relaxed mb-3 font-normal">
-                      Graduated with core competencies in enterprise systems modeling, agile scrum ceremonies, data modeling (Power BI), and business process re-engineering.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]">
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Agile Governance</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Power BI Modeling</span>
-                      <span class="bg-linen dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">BPMN Design</span>
-                    </div>
-                  </div>
-
-                  <button onclick="event.stopPropagation(); navigateMilestone(5);" class="nav-arrow-btn" aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Symbol 6: Accenture (Index 5) -->
-          <div onclick="toggleSymbolMilestone(this); moveTraveler(5);" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer" data-index="5">
-            <div class="bg-linen dark:bg-[#1B201E] border-2 border-sageAccent rounded-2xl p-4 shadow-lg text-center">
-              
-              <!-- Collapsed Symbol View -->
-              <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                  <img src="assets/Accn.png" alt="Accenture Logo" class="w-full h-full object-contain">
-                </div>
-                <span class="inline-block bg-sageAccent text-linen text-[8px] font-mono font-bold px-2.5 py-0.5 rounded-full uppercase mb-1">
-                  Current Destination
-                </span>
-                <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">Accenture</h4>
-                <p class="text-[10px] text-sageAccent font-bold">Business Analyst & Scrum Master</p>
-                <div class="mt-2 text-[9.5px] font-mono font-bold text-darkCharcoal dark:text-[#E6E8E5] bg-warmCard dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">2025 – Present</div>
-              </div>
-
-              <!-- Expanded Detailed Content with Left/Right Nav -->
-              <div class="symbol-expanded hidden pt-1 text-left">
-                <div class="flex items-center gap-3">
-                  <button onclick="event.stopPropagation(); navigateMilestone(4);" class="nav-arrow-btn" aria-label="Previous Stop">&#8592;</button>
-
-                  <div class="flex-grow min-w-0">
-                    <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
-                      <div class="flex items-center space-x-3">
-                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
-                          <img src="assets/Accn.png" alt="Accenture Logo" class="w-full h-full object-contain">
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 06 // Current Role</span>
-                          <h4 class="text-sm font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">Accenture</h4>
-                        </div>
-                      </div>
-                      <button onclick="event.stopPropagation(); resetSymbolMilestones();" class="text-[10px] text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5] font-bold bg-warmCard dark:bg-[#252D2A] px-2 py-1 rounded border border-sandBorder dark:border-[#2A322F]">✕ Close</button>
-                    </div>
-
-                    <p class="text-xs font-semibold text-sageAccent mb-1">Senior Business Analyst & Scrum Master &bull; 2025–Present</p>
-                    <p class="text-xs text-darkCharcoal/80 dark:text-[#E6E8E5]/80 leading-relaxed mb-3 font-normal">
-                      Leading cross-functional Agile sprint ceremonies, user story refinement, and commerce architectures across AEM and Adobe Commerce. Architected an organizational rule engine that significantly improved requirement compliance and data trust metrics.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-sandBorder dark:border-[#2A322F] text-[10px] font-mono text-softOlive dark:text-[#9FA8A3]">
-                      <span class="bg-warmCard dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Scrum Master</span>
-                      <span class="bg-warmCard dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">AEM & Adobe Commerce</span>
-                      <span class="bg-warmCard dark:bg-[#252D2A] px-2 py-0.5 rounded border border-sandBorder dark:border-[#2A322F]">Rule Engines</span>
-                    </div>
-                  </div>
-
-                  <button class="nav-arrow-btn" disabled aria-label="Next Stop">&#8594;</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
+          <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">2017 – 2021</span>
+          <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 leading-tight">B.Tech ECE</h4>
+          <p class="text-[10px] text-softOlive dark:text-[#9FA8A3] mt-0.5">Techno Main</p>
         </div>
+
+        <!-- Step 2: Cognizant -->
+        <div class="card-float bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 overflow-hidden p-1">
+            <img src="assets/cogni.jpg" alt="Cognizant Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-[9px] font-mono font-bold text-sageAccent uppercase">2021 – 2023</span>
+          <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 leading-tight">Software Engineer</h4>
+          <p class="text-[10px] text-softOlive dark:text-[#9FA8A3] mt-0.5">Cognizant</p>
+        </div>
+
+        <!-- Step 3: GIM Entry -->
+        <div class="card-float bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 overflow-hidden p-1">
+            <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">2023 – 2024</span>
+          <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 leading-tight">MBA Onboarding</h4>
+          <p class="text-[10px] text-softOlive dark:text-[#9FA8A3] mt-0.5">GIM Goa</p>
+        </div>
+
+        <!-- Step 4: Tally Solutions -->
+        <div class="card-float bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 overflow-hidden p-1">
+            <img src="assets/Tally.jpg" alt="Tally Solutions Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Summer 2024</span>
+          <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 leading-tight">Product Intern</h4>
+          <p class="text-[10px] text-softOlive dark:text-[#9FA8A3] mt-0.5">Tally Solutions</p>
+        </div>
+
+        <!-- Step 5: GIM Graduation -->
+        <div class="card-float bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 flex flex-col items-center text-center">
+          <div class="w-12 h-12 rounded-xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 overflow-hidden p-1">
+            <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">2024 – 2025</span>
+          <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 leading-tight">PGDM Graduation</h4>
+          <p class="text-[10px] text-softOlive dark:text-[#9FA8A3] mt-0.5">GIM Goa</p>
+        </div>
+
+        <!-- Step 6: Accenture -->
+        <div class="card-float bg-linen dark:bg-[#1B201E] border-2 border-sageAccent rounded-2xl p-4 flex flex-col items-center text-center shadow-md">
+          <div class="w-12 h-12 rounded-xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 overflow-hidden p-1">
+            <img src="assets/Accn.png" alt="Accenture Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-[9px] font-mono font-bold text-linen dark:text-[#121514] bg-sageAccent px-2 py-0.5 rounded uppercase">Present</span>
+          <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 leading-tight">Senior BA & Scrum</h4>
+          <p class="text-[10px] text-sageAccent font-bold mt-0.5">Accenture</p>
+        </div>
+
       </div>
-      
-      <p class="text-center text-xs text-softOlive dark:text-[#9FA8A3] font-mono">
-        ← Drag / swipe horizontally • Click any milestone to walk the traveler along the highway →
-      </p>
     </section>
 
     <!-- ================= SECTION 2.5: FEATURED PROJECTS DOSSIER ================= -->
@@ -1219,78 +848,6 @@
         img.classList.add('hidden');
         document.getElementById('profile-fallback').classList.remove('hidden');
       }
-    }
-
-    // Interactive Traveler movement along the highway
-    function moveTraveler(index) {
-      const avatar = document.getElementById('traveler-avatar');
-      const allCards = document.querySelectorAll('.road-symbol-card');
-      if (!avatar || !allCards[index]) return;
-
-      const targetCard = allCards[index];
-      const trackContainer = document.getElementById('road-track');
-      
-      // Calculate position relative to the track container
-      const cardLeft = targetCard.offsetLeft;
-      const cardWidth = targetCard.offsetWidth;
-      const targetPos = cardLeft + (cardWidth / 2) - 24; // center avatar (48px width / 2 = 24px)
-      
-      avatar.style.left = `${targetPos}px`;
-    }
-
-    // Initialize traveler position on load at the first card
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => moveTraveler(0), 150);
-    });
-
-    // Toggle and expand an individual milestone
-    function toggleSymbolMilestone(cardElement) {
-      const isAlreadyExpanded = cardElement.classList.contains('expanded');
-      const track = document.getElementById('road-track');
-      const allCards = document.querySelectorAll('.road-symbol-card');
-
-      if (isAlreadyExpanded) {
-        resetSymbolMilestones();
-        return;
-      }
-
-      track.classList.add('has-expanded');
-      allCards.forEach(c => {
-        c.classList.remove('expanded');
-        c.querySelector('.symbol-collapsed').classList.remove('hidden');
-        c.querySelector('.symbol-expanded').classList.add('hidden');
-      });
-
-      cardElement.classList.add('expanded');
-      cardElement.querySelector('.symbol-collapsed').classList.add('hidden');
-      cardElement.querySelector('.symbol-expanded').classList.remove('hidden');
-
-      // Horizontal container scroll only to prevent vertical layout shifting
-      const scrollContainer = document.getElementById('highway-scroll-container');
-      const cardOffset = cardElement.offsetLeft - scrollContainer.offsetLeft - (scrollContainer.clientWidth / 2) + (cardElement.clientWidth / 2);
-      scrollContainer.scrollTo({ left: cardOffset, behavior: 'smooth' });
-    }
-
-    // Programmatically navigate to target milestone index with arrows
-    function navigateMilestone(targetIndex) {
-      const allCards = document.querySelectorAll('.road-symbol-card');
-      if (targetIndex >= 0 && targetIndex < allCards.length) {
-        toggleSymbolMilestone(allCards[targetIndex]);
-        moveTraveler(targetIndex);
-      }
-    }
-
-    // Reset to collapsed view
-    function resetSymbolMilestones() {
-      const track = document.getElementById('road-track');
-      const allCards = document.querySelectorAll('.road-symbol-card');
-
-      track.classList.remove('has-expanded');
-      allCards.forEach(c => {
-        c.classList.remove('expanded');
-        c.querySelector('.symbol-collapsed').classList.remove('hidden');
-        c.querySelector('.symbol-expanded').classList.add('hidden');
-      });
     }
 
     // Interactive Project Dossier Spec Loaders
