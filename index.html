@@ -510,12 +510,12 @@
             </p>
           </div>
 
-          <!-- Direct CTAs - Unified Styling for Email & LinkedIn Buttons -->
+          <!-- Direct CTAs - Light: Dark background/white text | Dark: Light background/dark text -->
           <div class="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-            <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#121514] text-linen dark:text-[#E6E8E5] px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:bg-[#E6E8E5] dark:hover:text-[#121514] transition-all duration-300">
+            <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#E6E8E5] text-linen dark:text-[#121514] px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:bg-transparent dark:hover:text-[#E6E8E5] transition-all duration-300">
               Email Me &rarr;
             </a>
-            <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#121514] text-linen dark:text-[#E6E8E5] px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:bg-[#E6E8E5] dark:hover:text-[#121514] transition-all duration-300">
+            <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#E6E8E5] text-linen dark:text-[#121514] px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:bg-transparent dark:hover:text-[#E6E8E5] transition-all duration-300">
               LinkedIn Profile ↗
             </a>
           </div>
@@ -1123,11 +1123,12 @@
           </a>
         </div>
         
+        <!-- Footer CTAs - Light: Dark background/white text | Dark: Light background/dark text -->
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#121514] text-linen dark:text-[#E6E8E5] px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:bg-[#E6E8E5] dark:hover:text-[#121514] transition-all duration-300">
+          <a href="mailto:nilayancworks@gmail.com" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#E6E8E5] text-linen dark:text-[#121514] px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:bg-transparent dark:hover:text-[#E6E8E5] transition-all duration-300">
             Send an Email &rarr;
           </a>
-          <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#121514] text-linen dark:text-[#E6E8E5] px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:bg-[#E6E8E5] dark:hover:text-[#121514] transition-all duration-300">
+          <a href="https://www.linkedin.com/in/nilayan-chatterjee-53513918b/" target="_blank" rel="noopener noreferrer" class="inline-block border border-darkCharcoal dark:border-[#E6E8E5] bg-darkCharcoal dark:bg-[#E6E8E5] text-linen dark:text-[#121514] px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-transparent hover:text-darkCharcoal dark:hover:bg-transparent dark:hover:text-[#E6E8E5] transition-all duration-300">
             LinkedIn Profile ↗
           </a>
         </div>
@@ -1181,7 +1182,7 @@
         img.dataset.attempt = currentAttempt + 1;
         img.src = extensions[currentAttempt];
       } else {
-        img.classList.sadd('hidden');
+        img.classList.add('hidden');
         document.getElementById('profile-fallback').classList.remove('hidden');
       }
     }
@@ -1308,7 +1309,7 @@
       const focusSections = document.querySelectorAll('.focus-section');
       
       const observer = new IntersectionObserver((entries) => {
-        entries.ingressed = entries.forEach(entry => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-focus');
           } else {
