@@ -143,6 +143,27 @@
       transform: scale(0.9) !important;
     }
 
+    /* Animated Walking Traveler Avatar on the Highway */
+    #traveler-avatar {
+      position: absolute;
+      top: -24px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 20;
+      pointer-events: none;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    }
+
+    @keyframes travelerBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(2deg); }
+    }
+    .traveler-bobbing {
+      animation: travelerBounce 0.6s ease-in-out infinite;
+    }
+
     /* Navigation Arrows beside the card */
     .nav-arrow-btn {
       width: 32px;
@@ -550,7 +571,8 @@
       </div>
 
       <!-- Horizontal Scroll Runway with Locked Height -->
-      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-4 sm:-mx-6 px-4 sm:px-6 no-scrollbar min-h-[460px] flex items-center">
+      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-4 sm:-mx-6 px-4 sm:px-6 no-scrollbar min-h-[460px] flex items-center relative">
+        
         <div id="road-track" class="relative min-w-[1250px] flex items-center justify-between py-6 gap-3 transition-all duration-500 w-full">
           
           <!-- Asphalt Road Running Directly Through All Stops -->
@@ -558,8 +580,20 @@
             <div class="w-full border-t-2 border-dashed border-[#F9F8F5]/30"></div>
           </div>
 
+          <!-- Animated Walking Traveler Avatar -->
+          <div id="traveler-avatar" class="traveler-bobbing">
+            <svg viewBox="0 0 64 64" fill="none" class="w-full h-full">
+              <!-- Traveler Pack/Body -->
+              <circle cx="32" cy="18" r="8" fill="#5A6E68"/>
+              <path d="M22 32C22 27.5817 25.5817 24 30 24H34C38.4183 24 42 27.5817 42 32V42H22V32Z" fill="#767F74"/>
+              <rect x="25" y="42" width="5" height="16" rx="2.5" fill="#1A1D1C" class="dark:fill-[#E6E8E5]"/>
+              <rect x="34" y="42" width="5" height="16" rx="2.5" fill="#1A1D1C" class="dark:fill-[#E6E8E5]"/>
+              <circle cx="38" cy="20" r="3" fill="#8B7A70"/>
+            </svg>
+          </div>
+
           <!-- Symbol 1: B.Tech (Index 0) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="0">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(0);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="0">
             <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -611,7 +645,7 @@
           </div>
 
           <!-- Symbol 2: Cognizant (Index 1) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="1">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(1);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="1">
             <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -663,7 +697,7 @@
           </div>
 
           <!-- Symbol 3: GIM Goa Part 1 (Index 2) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="2">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(2);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="2">
             <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -715,7 +749,7 @@
           </div>
 
           <!-- Symbol 4: Tally Solutions (Index 3) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="3">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(3);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="3">
             <div class="bg-[#f5ede3] dark:bg-[#25221E] border-2 border-dashed border-mutedBrown dark:border-[#6B5B52] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -769,7 +803,7 @@
           </div>
 
           <!-- Symbol 5: GIM Goa Part 2 (Index 4) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="4">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(4);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="4">
             <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
@@ -820,7 +854,7 @@
           </div>
 
           <!-- Symbol 6: Accenture (Index 5) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer" data-index="5">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(5);" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer" data-index="5">
             <div class="bg-linen dark:bg-[#1B201E] border-2 border-sageAccent rounded-2xl p-4 shadow-lg text-center">
               
               <!-- Collapsed Symbol View -->
@@ -877,7 +911,7 @@
       </div>
       
       <p class="text-center text-xs text-softOlive dark:text-[#9FA8A3] font-mono">
-        ← Drag / swipe horizontally • Use ← / → arrows to travel between stops →
+        ← Drag / swipe horizontally • Click any milestone to walk the traveler along the highway →
       </p>
     </section>
 
@@ -1187,6 +1221,28 @@
       }
     }
 
+    // Interactive Traveler movement along the highway
+    function moveTraveler(index) {
+      const avatar = document.getElementById('traveler-avatar');
+      const allCards = document.querySelectorAll('.road-symbol-card');
+      if (!avatar || !allCards[index]) return;
+
+      const targetCard = allCards[index];
+      const trackContainer = document.getElementById('road-track');
+      
+      // Calculate position relative to the track container
+      const cardLeft = targetCard.offsetLeft;
+      const cardWidth = targetCard.offsetWidth;
+      const targetPos = cardLeft + (cardWidth / 2) - 24; // center avatar (48px width / 2 = 24px)
+      
+      avatar.style.left = `${targetPos}px`;
+    }
+
+    // Initialize traveler position on load at the first card
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => moveTraveler(0), 150);
+    });
+
     // Toggle and expand an individual milestone
     function toggleSymbolMilestone(cardElement) {
       const isAlreadyExpanded = cardElement.classList.contains('expanded');
@@ -1220,6 +1276,7 @@
       const allCards = document.querySelectorAll('.road-symbol-card');
       if (targetIndex >= 0 && targetIndex < allCards.length) {
         toggleSymbolMilestone(allCards[targetIndex]);
+        moveTraveler(targetIndex);
       }
     }
 
