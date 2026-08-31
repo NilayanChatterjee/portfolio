@@ -143,6 +143,27 @@
       transform: scale(0.9) !important;
     }
 
+    /* Animated Walking Traveler Avatar on the Highway */
+    #traveler-avatar {
+      position: absolute;
+      top: -24px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 20;
+      pointer-events: none;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+    }
+
+    @keyframes travelerBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(2deg); }
+    }
+    .traveler-bobbing {
+      animation: travelerBounce 0.6s ease-in-out infinite;
+    }
+
     /* Navigation Arrows beside the card */
     .nav-arrow-btn {
       width: 32px;
@@ -550,7 +571,8 @@
       </div>
 
       <!-- Horizontal Scroll Runway with Locked Height -->
-      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-4 sm:-mx-6 px-4 sm:px-6 no-scrollbar min-h-[460px] flex items-center">
+      <div id="highway-scroll-container" class="overflow-x-auto pb-6 pt-4 -mx-4 sm:-mx-6 px-4 sm:px-6 no-scrollbar min-h-[460px] flex items-center relative">
+        
         <div id="road-track" class="relative min-w-[1250px] flex items-center justify-between py-6 gap-3 transition-all duration-500 w-full">
           
           <!-- Asphalt Road Running Directly Through All Stops -->
@@ -558,14 +580,26 @@
             <div class="w-full border-t-2 border-dashed border-[#F9F8F5]/30"></div>
           </div>
 
+          <!-- Animated Walking Traveler Avatar -->
+          <div id="traveler-avatar" class="traveler-bobbing">
+            <svg viewBox="0 0 64 64" fill="none" class="w-full h-full">
+              <!-- Traveler Pack/Body -->
+              <circle cx="32" cy="18" r="8" fill="#5A6E68"/>
+              <path d="M22 32C22 27.5817 25.5817 24 30 24H34C38.4183 24 42 27.5817 42 32V42H22V32Z" fill="#767F74"/>
+              <rect x="25" y="42" width="5" height="16" rx="2.5" fill="#1A1D1C" class="dark:fill-[#E6E8E5]"/>
+              <rect x="34" y="42" width="5" height="16" rx="2.5" fill="#1A1D1C" class="dark:fill-[#E6E8E5]"/>
+              <circle cx="38" cy="20" r="3" fill="#8B7A70"/>
+            </svg>
+          </div>
+
           <!-- Symbol 1: B.Tech (Index 0) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="0">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(0);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="0">
             <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
               <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-linen dark:bg-[#252D2A] border border-sandBorder dark:border-[#2A322F] flex items-center justify-center text-darkCharcoal dark:text-[#E6E8E5] shadow-sm mb-3 group-hover:scale-110 transition-transform">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                  <img src="assets/TechnoMain.png" alt="Techno Main Logo" class="w-full h-full object-contain">
                 </div>
                 <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 01</span>
                 <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">B.Tech in ECE</h4>
@@ -581,8 +615,8 @@
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
                       <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#003366] text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-sm border border-sandBorder dark:border-[#2A322F] flex-shrink-0">
-                          TMSL
+                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                          <img src="assets/TechnoMain.png" alt="Techno Main Logo" class="w-full h-full object-contain">
                         </div>
                         <div>
                           <span class="text-[10px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 01 // Academics</span>
@@ -611,13 +645,13 @@
           </div>
 
           <!-- Symbol 2: Cognizant (Index 1) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="1">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(1);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="1">
             <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
               <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-linen dark:bg-[#252D2A] border border-sandBorder dark:border-[#2A322F] flex items-center justify-center text-sageAccent shadow-sm mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                  <img src="assets/cogni.jpg" alt="Cognizant Logo" class="w-full h-full object-contain">
                 </div>
                 <span class="text-[9px] font-mono font-bold text-sageAccent uppercase">Software Engineer</span>
                 <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">Cognizant</h4>
@@ -633,11 +667,8 @@
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
                       <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#000048] flex items-center justify-center p-1.5 shadow-sm border border-sandBorder dark:border-[#2A322F] flex-shrink-0">
-                          <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
-                            <circle cx="50" cy="50" r="38" stroke="#1F69FF" stroke-width="12"/>
-                            <circle cx="50" cy="50" r="18" fill="#1F69FF"/>
-                          </svg>
+                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                          <img src="assets/cogni.jpg" alt="Cognizant Logo" class="w-full h-full object-contain">
                         </div>
                         <div>
                           <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 02 // Enterprise Tech</span>
@@ -666,13 +697,13 @@
           </div>
 
           <!-- Symbol 3: GIM Goa Part 1 (Index 2) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="2">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(2);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="2">
             <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
               <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-linen dark:bg-[#252D2A] border border-sandBorder dark:border-[#2A322F] flex items-center justify-center text-darkCharcoal dark:text-[#E6E8E5] shadow-sm mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                  <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
                 </div>
                 <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">MBA Entry</span>
                 <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">GIM Goa</h4>
@@ -688,8 +719,8 @@
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
                       <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder dark:border-[#2A322F] flex-shrink-0">
-                          GIM
+                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                          <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
                         </div>
                         <div>
                           <span class="text-[10px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 03 // Leadership</span>
@@ -718,16 +749,16 @@
           </div>
 
           <!-- Symbol 4: Tally Solutions (Index 3) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="3">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(3);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="3">
             <div class="bg-[#f5ede3] dark:bg-[#25221E] border-2 border-dashed border-mutedBrown dark:border-[#6B5B52] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
               <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-warmCard dark:bg-[#1B201E] border border-mutedBrown dark:border-[#6B5B52] flex items-center justify-center text-mutedBrown dark:text-[#C4B5A8] shadow-sm mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                  <img src="assets/Tally.jpg" alt="Tally Solutions Logo" class="w-full h-full object-contain">
                 </div>
                 <span class="inline-block bg-mutedBrown dark:text-[#121514] text-linen text-[8px] font-mono font-bold px-2 py-0.5 rounded-full uppercase mb-1">
-                  Internship Trip
+                  Internship
                 </span>
                 <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5]">Tally Solutions</h4>
                 <p class="text-[10px] text-softOlive dark:text-[#9FA8A3]">Product Management</p>
@@ -742,8 +773,8 @@
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
                       <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#E85D04] text-white flex items-center justify-center font-black text-sm tracking-tighter shadow-sm border border-sandBorder dark:border-[#2A322F] flex-shrink-0">
-                          Tally
+                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                          <img src="assets/Tally.jpg" alt="Tally Solutions Logo" class="w-full h-full object-contain">
                         </div>
                         <div>
                           <span class="text-[10px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 04 // Product Pitstop</span>
@@ -772,13 +803,13 @@
           </div>
 
           <!-- Symbol 5: GIM Goa Part 2 (Index 4) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="4">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(4);" class="road-symbol-card relative z-10 w-44 flex-shrink-0 cursor-pointer" data-index="4">
             <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-4 shadow-md text-center">
               
               <!-- Collapsed Symbol View -->
               <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-linen dark:bg-[#252D2A] border border-sandBorder dark:border-[#2A322F] flex items-center justify-center text-darkCharcoal dark:text-[#E6E8E5] shadow-sm mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                  <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
                 </div>
                 <span class="text-[9px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Graduation</span>
                 <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">GIM Goa</h4>
@@ -793,8 +824,8 @@
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
                       <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#8B2332] text-white flex items-center justify-center font-extrabold text-xs tracking-wider shadow-sm border border-sandBorder dark:border-[#2A322F] flex-shrink-0">
-                          GIM
+                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                          <img src="assets/GIM.png" alt="GIM Logo" class="w-full h-full object-contain">
                         </div>
                         <div>
                           <span class="text-[10px] font-mono font-bold text-mutedBrown dark:text-[#9FA8A3] uppercase">Milestone 05 // Executive Degree</span>
@@ -823,13 +854,13 @@
           </div>
 
           <!-- Symbol 6: Accenture (Index 5) -->
-          <div onclick="toggleSymbolMilestone(this)" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer" data-index="5">
+          <div onclick="toggleSymbolMilestone(this); moveTraveler(5);" class="road-symbol-card relative z-10 w-48 flex-shrink-0 cursor-pointer" data-index="5">
             <div class="bg-linen dark:bg-[#1B201E] border-2 border-sageAccent rounded-2xl p-4 shadow-lg text-center">
               
               <!-- Collapsed Symbol View -->
               <div class="symbol-collapsed flex flex-col items-center">
-                <div class="w-14 h-14 rounded-2xl bg-sageAccent text-linen flex items-center justify-center shadow-md mb-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                  <img src="assets/Accn.png" alt="Accenture Logo" class="w-full h-full object-contain">
                 </div>
                 <span class="inline-block bg-sageAccent text-linen text-[8px] font-mono font-bold px-2.5 py-0.5 rounded-full uppercase mb-1">
                   Current Destination
@@ -847,8 +878,8 @@
                   <div class="flex-grow min-w-0">
                     <div class="flex items-center justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-3">
                       <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#A100FF] text-white flex items-center justify-center font-black text-xl leading-none shadow-sm border border-sandBorder dark:border-[#2A322F] flex-shrink-0">
-                          &gt;
+                        <div class="w-14 h-14 rounded-2xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform overflow-hidden p-1.5">
+                          <img src="assets/Accn.png" alt="Accenture Logo" class="w-full h-full object-contain">
                         </div>
                         <div>
                           <span class="text-[10px] font-mono font-bold text-sageAccent uppercase">Milestone 06 // Current Role</span>
@@ -880,7 +911,7 @@
       </div>
       
       <p class="text-center text-xs text-softOlive dark:text-[#9FA8A3] font-mono">
-        ← Drag / swipe horizontally • Use ← / → arrows to travel between stops →
+        ← Drag / swipe horizontally • Click any milestone to walk the traveler along the highway →
       </p>
     </section>
 
@@ -926,9 +957,9 @@
           </div>
 
           <div class="rv-pocket" id="rvPocket">
-            <button onclick="loadProjectSpec(0)" class="rv-ptab" aria-label="Open Optical Commerce"><span class="rv-pt-name">Automated Accident Detection and Emergency Dispatch System</span></button>
+            <button onclick="loadProjectSpec(0)" class="rv-ptab" aria-label="Open Optical Commerce"><span class="rv-pt-name">🚑 Automated Accident Detection and Emergency Dispatch System</span></button>
             <button onclick="loadProjectSpec(1)" class="rv-ptab" aria-label="Open Rule Engine"><span class="rv-pt-name">⚙️ Rule Engine</span></button>
-            <button onclick="loadProjectSpec(2)" class="rv-ptab" aria-label="Open TallyPrime Sharing"><span class="rv-pt-name">📄 TallyPrime 4.0 Sharing</span></button>
+            <button onclick="loadProjectSpec(2)" class="rv-ptab" aria-label="Open TallyPrime Sharing"><span class="rv-pt-name">📤 TallyPrime 4.0 Document Sharing Process Revamp</span></button>
             <button onclick="loadProjectSpec(3)" class="rv-ptab" aria-label="Open BI & Automation"><span class="rv-pt-name">📊 BI & Automation</span></button>
           </div>
 
@@ -995,7 +1026,7 @@
           <ul class="space-y-3 text-sm text-darkCharcoal/80 dark:text-[#E6E8E5]/80 mb-6 border-l-2 border-sandBorder dark:border-[#2A322F] pl-5 font-normal">
             <li>Revamped the document sharing process, achieving a 70% reduction in sharing time through streamlined process design.</li>
             <li>Conducted in-depth competitor analysis to identify strengths and weaknesses of 10 different competitor products.</li>
-            <li>Conducted market research by connecting with over 200+ customers to understand user needs, preferences and pain points.</li>
+            <li>Conducted market research by connecting with 200+ customers to understand user needs, preferences, and pain points.</li>
             <li>Designed 6 user personas and defined user journeys and product requirements by identifying 12 critical use cases.</li>
             <li>Translated insights into solutions by creating 10 detailed wireframes based on the use cases and exceptions created.</li>
           </ul>
@@ -1190,6 +1221,28 @@
       }
     }
 
+    // Interactive Traveler movement along the highway
+    function moveTraveler(index) {
+      const avatar = document.getElementById('traveler-avatar');
+      const allCards = document.querySelectorAll('.road-symbol-card');
+      if (!avatar || !allCards[index]) return;
+
+      const targetCard = allCards[index];
+      const trackContainer = document.getElementById('road-track');
+      
+      // Calculate position relative to the track container
+      const cardLeft = targetCard.offsetLeft;
+      const cardWidth = targetCard.offsetWidth;
+      const targetPos = cardLeft + (cardWidth / 2) - 24; // center avatar (48px width / 2 = 24px)
+      
+      avatar.style.left = `${targetPos}px`;
+    }
+
+    // Initialize traveler position on load at the first card
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => moveTraveler(0), 150);
+    });
+
     // Toggle and expand an individual milestone
     function toggleSymbolMilestone(cardElement) {
       const isAlreadyExpanded = cardElement.classList.contains('expanded');
@@ -1223,6 +1276,7 @@
       const allCards = document.querySelectorAll('.road-symbol-card');
       if (targetIndex >= 0 && targetIndex < allCards.length) {
         toggleSymbolMilestone(allCards[targetIndex]);
+        moveTraveler(targetIndex);
       }
     }
 
@@ -1260,9 +1314,9 @@
       {
         badgeText: "Tally Solutions &bull; Product Discovery &bull; TallyPrime 4.0",
         badgeBg: "bg-warmCard dark:bg-[#252D2A] text-sageAccent dark:text-[#829D94] border border-sandBorder dark:border-[#2A322F]",
-        title: "TallyPrime 4.0 Document-Sharing Workflow Revamp",
+        title: "TallyPrime 4.0 Document-Sharing Process Revamp",
         role: "Product Management Intern &bull; Tally Solutions (Bangalore)",
-        description: "• Revamped the document sharing process, achieving 70% reduction in sharing time through streamlined process design\n• Conducted in-depth competitor analysis to identify strengths and weaknesses of 10 different competitor products\n• Conducted market research by connecting with over 200+ customers to understand user needs, preferences and pain points\n• Designed 6 user personas and defined user journeys and product requirements by identifying 12 critical use cases\n• Translated insights into solutions by creating 10 detailed wireframes based on the use cases and the exceptions created\n• Maintained a record of ahead of schedule completion of deliverables over the 2-month duration, enhancing efficiency of the project\n• Championed simplicity in solution development, aligning with Tally Solutions’ core value of TallyWay of things\n• Fostered collaboration across departments to ensure project success and consistent achievement of all weekly milestones",
+        description: "• Revamped the document sharing process, achieving 70% reduction in sharing time through streamlined process design\n• Conducted in-depth competitor analysis to identify strengths and weaknesses of 10 different competitor products\n• Conducted market research by connecting with 200+ customers to understand user needs, preferences and pain points\n• Designed 6 user personas and defined user journeys and product requirements by identifying 12 critical use cases\n• Translated insights into solutions by creating 10 detailed wireframes based on the use cases and the exceptions created\n• Maintained a record of ahead of schedule completion of deliverables over the duration, enhancing efficiency of the project\n• Championed simplicity in solution development, aligning with Tally Solutions’ core value of TallyWay of things\n• Fostered collaboration across departments to ensure project success and consistent achievement of all weekly milestones",
         tags: ["Product Discovery", "TallyPrime 4.0", "Persona Mapping", "Wireframing"]
       },
       {
