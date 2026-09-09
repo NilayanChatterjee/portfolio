@@ -657,7 +657,7 @@
 
       <div class="space-y-12">
         
-        <!-- Experience 1: Accenture with Updated Points -->
+        <!-- Experience 1: Accenture with Updated Points and Data Visualizations -->
         <article class="card-float border border-sandBorder dark:border-[#2A322F] rounded-2xl bg-warmCard dark:bg-[#1B201E] p-8 sm:p-10 hover:border-darkCharcoal/30">
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder dark:border-[#2A322F] pb-5 mb-6">
             <div>
@@ -679,6 +679,9 @@
             <li>Led UAT and Product Owner reviews for 50+ stories, ensuring functional quality and alignment with business requirements before release.</li>
             <li>Authored AEM EDS demo pages and delivered sprint-end client demonstrations, showcasing completed functionality and driving stakeholder alignment.</li>
             <li>Proactively managed risks, dependencies, and client queries while consistently delivering on-time, high-quality releases with zero-defect client reviews.</li>
+            <li>Achieved an overall Gen AI Savings of 46% during my tenure at Accenture.</li>
+            <li>Drove revenue growth from 11.3k to 29k.</li>
+            <li>Scaled units sold from 66,721 to 180k.</li>
           </ul>
 
           <!-- Data Plots Section -->
@@ -693,9 +696,9 @@
 
           <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder dark:border-[#2A322F] text-xs text-softOlive dark:text-[#9FA8A3] uppercase tracking-wider font-semibold">
             <span>Scrum Leadership</span> &bull; 
-            <span>EDS & Commerce</span> &bull; 
-            <span>AEM</span> &bull; 
-            <span>Azure DevOps</span> &bull; 
+            <span>Gen AI Savings (46%)</span> &bull; 
+            <span>Revenue Growth</span> &bull; 
+            <span>Units Scaled</span> &bull; 
             <span>WCAG Accessibility</span>
           </div>
         </article>
@@ -743,14 +746,6 @@
           <p class="text-base text-darkCharcoal/85 dark:text-[#E6E8E5]/85 leading-relaxed mb-6 font-normal">
             Managed tier-level incident triage, system support, and defect resolution pipelines for global tier-1 insurance clients.
           </p>
-            <ul class="space-y-3 text-sm text-darkCharcoal/80 dark:text-[#E6E8E5]/80 mb-6 border-l-2 border-sandBorder dark:border-[#2A322F] pl-5 font-normal">
-                <li>Have worked in development and management of technical applications for insurance companies based out of USA.</li>
-                <li>Collaborated with cross-functional teams to design and support client websites for seamless customer experience for client.</li>
-                <li>Solved 700+ tickets raised by client team, bug fixes and fixed logic gaps in support domain, and converted legacy application to microservice based application so that the company could retire a few old databases it was using.</li>
-                <li>Analyzed the trend in the tickets and found an issue in the system, collaborated with a senior and fixed it by updating code.</li>
-                <li>Recognized for my contributions to the project multiple times by team leader, and twice by project manager.</li>
-            </ul>
-         
 
           <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder dark:border-[#2A322F] text-xs text-softOlive dark:text-[#9FA8A3] uppercase tracking-wider font-semibold">
             <span>Systems Triage</span> &bull; 
@@ -899,7 +894,10 @@
     </main>
   </div>
 
-  <!-- Scripts: Navigation, Theme Toggle & Smooth Car Driving Animation -->
+  <!-- Chart.js Library CDN placed right before closing body tag -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Scripts: Navigation, Theme Toggle, Smooth Car Driving Animation & Chart Visualizations -->
   <script>
     // Theme Toggle Functionality
     function toggleDarkMode() {
@@ -1081,7 +1079,6 @@
     }
 
     function closeProjectSpec() {
-      document.getElementById('specSpecSheet') ? document.getElementById('specSpecSheet').classList.add('hidden') : null;
       document.getElementById('rvSpecSheet').classList.add('hidden');
       document.getElementById('rvCover').classList.remove('hidden');
     }
