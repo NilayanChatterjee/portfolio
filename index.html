@@ -11,9 +11,6 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Chart.js CDN for Spline Area Charts -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
   <!-- Single Font Family: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -636,7 +633,7 @@
           </p>
 
           <ul class="space-y-3 text-sm text-darkCharcoal/80 dark:text-[#E6E8E5]/80 mb-6 border-l-2 border-sandBorder dark:border-[#2A322F] pl-5 font-normal">
-            <li>Served as Business Analyst & Scrum Master across EDS, Commerce, and PCM squads, bridging business, design, and technical teams to drive end-to-end delivery.</li>
+            <li>Served as Business Analyst, Product Owner & Scrum Master across EDS, Commerce, and PCM squads, bridging business, design, and technical teams to drive end-to-end delivery.</li>
             <li>Managed and prioritized a 100+ story product backlog, facilitating 5+ Agile ceremonies per sprint and improving delivery predictability by 20%.</li>
             <li>Gathered and translated 40+ business requirements into user stories, process flows, and 200+ Acceptance Criteria, including WCAG accessibility requirements.</li>
             <li>Partnered with developers and UI/UX teams on story refinement, LoE estimation, Figma design reviews, and requirement clarification, reducing ambiguity and rework by ~15%.</li>
@@ -836,10 +833,6 @@
       const isDark = html.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
       
-      if (chartsInitialized) {
-        destroyCharts();
-        initCharts();
-      }
     }
 
     // Smooth Car Driving Animation along the Highway (Desktop Only)
@@ -855,42 +848,6 @@
       car.style.left = `${targetPos}px`;
     }
 
-    // Accordion & Large Spline Area Charts Initialization
-    let contributionsOpen = false;
-    let chartsInitialized = false;
-    let revChart, unitsChart, aiChart;
-
-    function toggleContributions(event) {
-      event.stopPropagation();
-      const container = document.getElementById('contributionsContainer');
-      const chevron = document.getElementById('contribChevron');
-      
-      contributionsOpen = !contributionsOpen;
-      if (contributionsOpen) {
-        container.classList.remove('hidden');
-        chevron.innerText = '↑';
-        if (!chartsInitialized) {
-          initCharts();
-          chartsInitialized = true;
-        }
-      } else {
-        container.classList.add('hidden');
-        chevron.innerText = '↓';
-      }
-    }
-
-    // Collapse accordion when clicking outside
-    document.addEventListener('click', (event) => {
-      const container = document.getElementById('contributionsContainer');
-      const chevron = document.getElementById('contribChevron');
-      const button = event.target.closest('button[onclick*="toggleContributions"]');
-      
-      if (contributionsOpen && container && !container.contains(event.target) && !button) {
-        container.classList.add('hidden');
-        if (chevron) chevron.innerText = '↓';
-        contributionsOpen = false;
-      }
-    });
 
     // Initialize car position on load at the first node (Desktop Only)
     document.addEventListener('DOMContentLoaded', () => {
