@@ -302,13 +302,14 @@
       </a>
 
       <!-- Desktop Navigation Links & Controls on the Right -->
-      <div class="flex items-center space-x-4 sm:space-x-6">
+      <div class="flex items-center space-x-2.5">
+        <!-- Desktop Nav -->
         <nav class="hidden lg:flex items-center space-x-6 text-[11px] uppercase tracking-[0.18em] font-semibold text-softOlive dark:text-[#9FA8A3]">
           <a href="#profile" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">About</a>
           <a href="#journey" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Journey</a>
           <a href="#projects" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Projects</a>
           <a href="#work" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Work</a>
-          <a href="#pedigree" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Education</a>
+          <a href="#education" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Education</a>
           <a href="#cv" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">CV</a>
           <a href="https://www.linkedin.com/in/nilayan-chatterjee/" target="_blank" rel="noopener noreferrer" class="text-darkCharcoal dark:text-[#E6E8E5] border-b border-darkCharcoal dark:border-[#E6E8E5] pb-0.5 hover:opacity-60 transition-opacity">
             LinkedIn ↗
@@ -325,35 +326,22 @@
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" d="M12 3.2v2M12 18.8v2M3.2 12h2M18.8 12h2M5.7 5.7l1.4 1.4M16.9 16.9l1.4 1.4M18.3 5.7l-1.4 1.4M7.1 16.9l-1.4 1.4"></path>
           </svg>
         </button>
+
+        <!-- Mobile Hamburger / Close Button (lg:hidden) -->
+        <button id="menuToggleBtn" onclick="toggleMobileMenu()" type="button" aria-label="Toggle navigation menu" aria-expanded="false" class="lg:hidden icon-button text-darkCharcoal dark:text-[#E6E8E5]">
+          <!-- 3-line Hamburger Icon -->
+          <svg id="hamburgerIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <!-- Cross (X) Icon -->
+          <svg id="closeIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
-<!-- Mobile Hamburger Menu Button (Visible strictly on mobile & tablet, hidden on desktop: lg:hidden) -->
-      <button id="menuToggleBtn" onclick="toggleMobileMenu()" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu" class="lg:hidden icon-button text-darkCharcoal dark:text-[#E6E8E5]">
-          <!-- Hamburger bars icon (shows when menu is closed) -->
-        <svg id="hamburgerIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-          <!-- Close 'X' icon (shows when menu is open) -->
-        <svg id="closeIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile Navigation Dropdown Menu -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-linen dark:bg-[#121514] border-b border-sandBorder dark:border-[#2A322F] px-6 py-4 space-y-3">
-      <a href="#profile" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">About</a>
-      <a href="#journey" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Journey</a>
-      <a href="#projects" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Projects</a>
-      <a href="#work" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Work</a>
-      <a href="#pedigree" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Education</a>
-      <a href="#cv" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">CV</a>
-      <a href="https://www.linkedin.com/in/nilayan-chatterjee/" target="_blank" rel="noopener noreferrer" class="block text-xs uppercase tracking-widest font-semibold text-darkCharcoal dark:text-[#E6E8E5] pt-2 border-t border-sandBorder dark:border-[#2A322F]">LinkedIn Profile ↗</a>
-    </div>
-  </header>
-
   <!-- Main Container -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6">
 
