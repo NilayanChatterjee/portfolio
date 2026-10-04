@@ -921,11 +921,23 @@
 
     // Mobile Menu Toggle Logic
     function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      if (menu) {
-        menu.classList.toggle('hidden');
-      }
-    }
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuToggleBtn');
+  const hamburgerIcon = document.getElementById('hamburgerIcon');
+  const closeIcon = document.getElementById('closeIcon');
+
+  if (!menu) return;
+
+  const isOpening = menu.classList.contains('hidden');
+  menu.classList.toggle('hidden');
+
+  if (btn) btn.setAttribute('aria-expanded', isOpening);
+
+  if (hamburgerIcon && closeIcon) {
+    hamburgerIcon.classList.toggle('hidden', isOpening);
+    closeIcon.classList.toggle('hidden', !isOpening);
+  }
+}
 
     // Image fallback sequence
     function handleImageFallback(img) {
