@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nilayan Chatterjee — Portfolio</title>
-  <meta name="description" content="Nilayan Chatterjee — Business Analyst and Product Owner for enterprise digital commerce (AEM, Adobe Commerce, SAP). Open to consulting, strategy and BA roles in the Netherlands, Ireland and the UK.">
-  <meta property="og:title" content="Nilayan Chatterjee — Business Analyst & Digital Commerce Consultant">
-  <meta property="og:description" content="Enterprise digital commerce (AEM, Adobe Commerce, SAP), requirements and agile delivery. Open to roles in the Netherlands, Ireland and the UK.">
+  <meta name="description" content="Nilayan Chatterjee — Business Architecture Senior Analyst & Product Owner for enterprise digital commerce (AEM EDS, Adobe Commerce, SAP Hybris). Open to consulting, strategy and BA roles in the Netherlands, Ireland and the UK.">
+  <meta property="og:title" content="Nilayan Chatterjee — Business Analyst, Product Owner & Digital Commerce Consultant">
+  <meta property="og:description" content="Enterprise digital commerce (AEM EDS, Adobe Commerce, SAP Hybris), requirements architecture and agile delivery at Accenture Song.">
   <meta property="og:image" content="https://nilayanchatterjee.github.io/portfolio/assets/profile.jpeg">
   <!-- Favicon using NC initials badge -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231A1D1C'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' fill='%23F9F8F5' font-family='Plus Jakarta Sans, sans-serif' font-weight='800' font-size='13'>NC</text></svg>">
@@ -245,39 +245,6 @@
       color: #E6E8E5;
     }
 
-    /* Theme Toggle Button Styles */
-    .icon-button {
-      width: 38px;
-      height: 38px;
-      border-radius: 9999px;
-      background-color: #F2EFEB;
-      border: 1px solid #E5DFD7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      color: #1A1D1C;
-      flex-shrink: 0;
-    }
-    .dark .icon-button {
-      background-color: #1B201E;
-      border-color: #2A322F;
-      color: #E6E8E5;
-    }
-    .icon-button:hover {
-      transform: scale(1.08);
-      border-color: #5A6E68;
-    }
-    .icon-button .icon {
-      width: 18px;
-      height: 18px;
-    }
-    .icon-button .icon--sun { display: none; }
-    .icon-button .icon--moon { display: block; }
-    .dark .icon-button .icon--sun { display: block; }
-    .dark .icon-button .icon--moon { display: none; }
-
     /* Bouncing Scroll Cue */
     @keyframes bounceSlow {
       0%, 100% { transform: translateY(0); }
@@ -285,6 +252,16 @@
     }
     .animate-bounce-slow {
       animation: bounceSlow 2s ease-in-out infinite;
+    }
+
+    /* Reduced Motion Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .focus-section, .portrait-photo, .card-float, #highway-car {
+        transition: none !important;
+        transform: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+      }
     }
   </style>
 </head>
@@ -309,6 +286,7 @@
           <a href="#journey" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Journey</a>
           <a href="#projects" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Projects</a>
           <a href="#work" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Work</a>
+          <a href="#skills" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Skills</a>
           <a href="#pedigree" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">Education</a>
           <a href="#cv" class="hover:text-darkCharcoal dark:hover:text-[#E6E8E5] transition-colors">CV</a>
           <a href="https://www.linkedin.com/in/nilayan-chatterjee/" target="_blank" rel="noopener noreferrer" class="text-darkCharcoal dark:text-[#E6E8E5] border-b border-darkCharcoal dark:border-[#E6E8E5] pb-0.5 hover:opacity-60 transition-opacity">
@@ -321,12 +299,12 @@
           <!-- Theme Toggle Button (Themed Outline Style) -->
           <button class="w-8 h-8 rounded-full flex items-center justify-center text-softOlive hover:text-darkCharcoal dark:text-[#9FA8A3] dark:hover:text-[#E6E8E5] hover:bg-sandBorder/50 dark:hover:bg-[#2A322F] transition-all duration-300" type="button" aria-label="Switch theme" data-theme-toggle>
             
-            <!-- MOON: Displayed in Light mode (Clean 1.8px stroke + soft fill matching linen theme) -->
+            <!-- MOON: Displayed in Light mode -->
             <svg class="w-4 h-4 block dark:hidden transition-transform duration-300 hover:-rotate-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor" fill-opacity="0.12"></path>
             </svg>
 
-            <!-- SUN: Displayed in Dark mode (Geometric ray balance matching sage/slate aesthetic) -->
+            <!-- SUN: Displayed in Dark mode -->
             <svg class="w-4 h-4 hidden dark:block transition-transform duration-300 hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="4.5" fill="currentColor" fill-opacity="0.15"></circle>
               <line x1="12" y1="1.75" x2="12" y2="4.25"></line>
@@ -338,7 +316,6 @@
               <line x1="4.22" y1="19.78" x2="5.99" y2="18.01"></line>
               <line x1="18.01" y1="5.99" x2="19.78" y2="4.22"></line>
             </svg>
-
           </button>
 
           <!-- Divider (Mobile Only) -->
@@ -369,6 +346,7 @@
       <a href="#journey" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Journey</a>
       <a href="#projects" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Projects</a>
       <a href="#work" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Work</a>
+      <a href="#skills" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Skills</a>
       <a href="#pedigree" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">Education</a>
       <a href="#cv" onclick="toggleMobileMenu()" class="block text-xs uppercase tracking-widest font-semibold text-softOlive dark:text-[#9FA8A3] hover:text-darkCharcoal dark:hover:text-[#E6E8E5]">CV</a>
       <a href="https://www.linkedin.com/in/nilayan-chatterjee/" target="_blank" rel="noopener noreferrer" class="block text-xs uppercase tracking-widest font-semibold text-darkCharcoal dark:text-[#E6E8E5] pt-2 border-t border-sandBorder dark:border-[#2A322F]">LinkedIn Profile ↗</a>
@@ -387,8 +365,8 @@
         <h1 class="text-5xl sm:text-7xl md:text-9xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight leading-[0.95] mb-6">
           I Am <span class="italic font-normal text-mutedBrown dark:text-[#A89890]">Nilayan</span>.
         </h1>
-        <p class="text-base sm:text-2xl text-darkCharcoal/80 dark:text-[#E6E8E5]/80 font-normal max-w-2xl mx-auto leading-relaxed">
-          Business Analyst/Product Owner &amp; Digital Commerce Consultant
+        <p class="text-base sm:text-2xl text-darkCharcoal/80 dark:text-[#E6E8E5]/80 font-normal max-w-3xl mx-auto leading-relaxed">
+          Business Architecture Senior Analyst &bull; Product Owner &amp; Digital Commerce Consultant @ Accenture Song
         </p>
       </div>
 
@@ -432,9 +410,8 @@
         </div>
 
         <!-- Executive Summary -->
-       <div class="md:col-span-7">
+        <div class="md:col-span-7">
           
-          <!-- Aligned Executive Summary + [ 01 — About ] on the same line -->
           <div class="flex items-baseline justify-between border-b border-sandBorder dark:border-[#2A322F] pb-3 mb-6">
             <span class="text-[11px] uppercase tracking-[0.22em] text-mutedBrown dark:text-[#9FA8A3] font-bold">
               Executive Summary
@@ -447,12 +424,16 @@
             Translating complex enterprise vision into high-impact digital products.
           </h2>
 
-          <div class="space-y-4 text-darkCharcoal/80 dark:text-[#E6E8E5]/80 text-sm sm:text-base leading-relaxed font-normal mb-8">
+          <div class="space-y-4 text-darkCharcoal/80 dark:text-[#E6E8E5]/80 text-sm sm:text-base leading-relaxed font-normal mb-6">
             <p>
-              I am a dual-disciplined engineering and management professional based in Kolkata, open to relocation across Europe (Netherlands, Ireland &amp; UK), and working at the intersection of product discovery, agile execution, and next-gen AI enablement.
+              I work at the intersection of product strategy, digital commerce, and technology — turning business problems into products, requirements, and measurable outcomes.
             </p>
             <p>
-              With experience across <strong>Accenture SONG</strong>, <strong>Tally Solutions</strong>, and <strong>Cognizant</strong>, I turn business needs into clear requirements, prioritised backlogs, and well-tested releases, working closely with design and engineering teams. My background as a Java developer helps me bridge business and technology.</p>
+              Currently at <strong>Accenture Song</strong>, I serve as a Business Architecture Senior Analyst and Product Owner, partnering with business, design, and engineering teams across enterprise digital commerce initiatives. Earlier, I worked with the Product Management team at <strong>Tally Solutions</strong> on TallyPrime, and engineered backend microservices as a Software Engineer at <strong>Cognizant</strong>.
+            </p>
+            <p class="text-xs font-mono text-mutedBrown dark:text-[#9FA8A3] pt-3 border-t border-sandBorder dark:border-[#2A322F]">
+              🌍 Actively pursuing opportunities in the <strong>Netherlands</strong> (IND Highly Skilled Migrant), <strong>Ireland</strong> (Critical Skills Employment Permit eligible), and the <strong>UK</strong> (Skilled Worker route).
+            </p>
           </div>
       
           <!-- Direct CTAs -->
@@ -469,7 +450,7 @@
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-sandBorder dark:border-[#2A322F]">
             <div>
               <p class="text-[10px] uppercase tracking-wider text-softOlive dark:text-[#9FA8A3] font-bold">Focus</p>
-              <p class="text-sm font-bold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">Business Analysis &bull; Digital Commerce &bull; Strategy</p>
+              <p class="text-sm font-bold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">Product Management &bull; Digital Commerce &bull; BA</p>
             </div>
             <div>
               <p class="text-[10px] uppercase tracking-wider text-softOlive dark:text-[#9FA8A3] font-bold">Credentials</p>
@@ -567,15 +548,15 @@
             <p class="text-[10px] text-softOlive dark:text-[#9FA8A3] mt-0.5">GIM Goa</p>
           </div>
 
-          <!-- Stop 6: Accenture -->
+          <!-- Stop 6: Accenture Song -->
           <div onclick="driveCarTo(5, this)" class="roadmap-node card-float bg-linen dark:bg-[#121514] border-2 border-sageAccent rounded-2xl p-4 text-center cursor-pointer relative group shadow-md" data-index="5">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-sageAccent text-linen font-bold text-[10px] flex items-center justify-center shadow">6</div>
             <div class="w-12 h-12 mx-auto rounded-xl bg-white border border-sandBorder dark:border-[#2A322F] flex items-center justify-center shadow-sm mb-2 overflow-hidden p-1">
               <img src="assets/Accn.png" alt="Accenture Logo" class="w-full h-full object-contain">
             </div>
             <span class="text-[9px] font-mono font-bold text-linen dark:text-[#121514] bg-sageAccent px-2 py-0.5 rounded uppercase">Present</span>
-            <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">Business Analyst/ Product Owner</h4>
-            <p class="text-[10px] text-sageAccent font-bold mt-0.5">Accenture SONG</p>
+            <h4 class="text-xs font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-0.5">Sr Analyst &bull; PO &bull; BA</h4>
+            <p class="text-[10px] text-sageAccent font-bold mt-0.5">Accenture Song</p>
           </div>
 
         </div>
@@ -636,7 +617,6 @@
         </div>
       </div>
 
-      <!-- Instructions properly positioned below the dossier box -->
       <p class="text-center text-xs text-softOlive dark:text-[#9FA8A3] font-mono mt-4">
         ← Click any project tab above to inspect specs →
       </p>
@@ -654,36 +634,35 @@
 
       <div class="space-y-12">
         
-        <!-- Experience 1: Accenture -->
+        <!-- Experience 1: Accenture Song -->
         <article class="card-float border border-sandBorder dark:border-[#2A322F] rounded-2xl bg-warmCard dark:bg-[#1B201E] p-8 sm:p-10 hover:border-darkCharcoal/30">
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder dark:border-[#2A322F] pb-5 mb-6">
             <div>
               <span class="text-xs uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">Oct 2025 &ndash; Present</span>
-              <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 tracking-tight">Accenture SONG</h3>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 tracking-tight">Accenture Song</h3>
             </div>
-            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Business Analyst & Product Owner</span>
+            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Business Architecture Senior Analyst (BA / PO)</span>
           </div>
 
           <p class="text-base text-darkCharcoal/85 dark:text-[#E6E8E5]/85 leading-relaxed mb-6 font-normal">
-            Driving Agile sprint governance and functional requirements architecture for an enterprise consumer client's digital commerce programme.
+            Business Analyst and Product Owner on an enterprise digital commerce programme (AEM EDS, Adobe Commerce, SAP Hybris), turning 40+ requirements into 200+ acceptance criteria, leading UAT and delivery across 100+ stories.
           </p>
 
           <ul class="space-y-3 text-sm text-darkCharcoal/80 dark:text-[#E6E8E5]/80 mb-6 border-l-2 border-sandBorder dark:border-[#2A322F] pl-5 font-normal">
-            <li>Served as Business Analyst, Product Owner & Scrum Master across EDS, Commerce, and PCM squads, bridging business, design, and technical teams to drive end-to-end delivery.</li>
-            <li>Managed and prioritized a 100+ story product backlog, facilitating 5+ Agile ceremonies per sprint and improving delivery predictability by 20%.</li>
-            <li>Gathered and translated 40+ business requirements into user stories, process flows, and 200+ Acceptance Criteria, including WCAG accessibility requirements.</li>
-            <li>Partnered with developers and UI/UX teams on story refinement, LoE estimation, Figma design reviews, and requirement clarification, reducing ambiguity and rework by ~15%.</li>
-            <li>Led UAT and Product Owner reviews for 100+ stories, ensuring functional quality and alignment with business requirements before release.</li>
-            <li>Authored 25+ AEM EDS demo pages and delivered sprint-end client demonstrations, showcasing completed functionality and driving stakeholder alignment.</li>
-            <li>Proactively managed risks, dependencies, and client queries while consistently delivering on-time, high-quality releases with zero-defect client reviews.</li>
+            <li><strong>Requirements &amp; Backlog Management:</strong> Managed and prioritized a 100+ item product backlog, leading Agile ceremonies including sprint planning, daily standups, backlog refinement, and sizing estimations.</li>
+            <li><strong>Functional Architecture:</strong> Gathered and translated 40+ business requirements into user stories, process flows, and 200+ Acceptance Criteria (including WCAG accessibility standards).</li>
+            <li><strong>Design-to-Tech Alignment:</strong> Interfaced closely with UI/UX designers in Figma to evaluate interaction flows, eliminate functional ambiguity, and streamline developer handoffs.</li>
+            <li><strong>UAT Leadership:</strong> Led User Acceptance Testing (UAT) and Product Owner sign-offs across 100+ stories, ensuring seamless end-to-end functionality ahead of release.</li>
+            <li><strong>Client Demonstrations:</strong> Built 25+ demo pages on AEM Edge Delivery Services (EDS) and delivered sprint-end demonstrations to international client leadership.</li>
           </ul>
 
           <div class="flex flex-wrap gap-2 pt-6 mt-6 border-t border-sandBorder dark:border-[#2A322F] text-xs text-softOlive dark:text-[#9FA8A3] uppercase tracking-wider font-semibold">
-            <span>AEM</span> &bull; 
-            <span>Hybris</span> &bull; 
-            <span>Magento</span> &bull; 
-            <span>Gen AI</span> &bull; 
-            <span>Scrum Leadership</span>
+            <span>AEM EDS</span> &bull; 
+            <span>Adobe Commerce</span> &bull; 
+            <span>SAP Hybris</span> &bull; 
+            <span>Figma</span> &bull; 
+            <span>Agentic AI</span> &bull; 
+            <span>Scrum Governance</span>
           </div>
         </article>
 
@@ -691,64 +670,179 @@
         <article class="card-float border border-sandBorder dark:border-[#2A322F] rounded-2xl bg-warmCard dark:bg-[#1B201E] p-8 sm:p-10 hover:border-darkCharcoal/30">
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder dark:border-[#2A322F] pb-5 mb-6">
             <div>
-              <span class="text-xs uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">April 2024 &ndash; June 2024</span>
+              <span class="text-xs uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">Apr 2024 &ndash; May 2024 &bull; Bangalore</span>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 tracking-tight">Tally Solutions</h3>
             </div>
             <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Product Management Intern</span>
           </div>
 
           <p class="text-base text-darkCharcoal/85 dark:text-[#E6E8E5]/85 leading-relaxed mb-6 font-normal">
-            Spearheaded product discovery initiatives to optimize core document-sharing user touchpoints for TallyPrime 4.0.
+            Embedded within the core TallyPrime Product Management team to optimize end-to-end document-sharing and collaboration workflows.
           </p>
 
           <ul class="space-y-3 text-sm text-darkCharcoal/80 dark:text-[#E6E8E5]/80 mb-6 border-l-2 border-sandBorder dark:border-[#2A322F] pl-5 font-normal">
-            <li>Revamped the document sharing process, achieving a 70% reduction in sharing time through streamlined process design.</li>
-            <li>Conducted in-depth competitor analysis to identify strengths and weaknesses of 10 different competitor products.</li>
-            <li>Conducted market research by connecting with 200+ customers to understand user needs, preferences, and pain points.</li>
-            <li>Designed 6 user personas and defined user journeys and product requirements by identifying 12 critical use cases.</li>
-            <li>Translated insights into solutions by creating 10 detailed wireframes based on the use cases and exceptions created.</li>
+            <li>Proposed journey and process enhancements projected to reduce document-sharing cycle time by ~70%.</li>
+            <li>Conducted primary user discovery interviews with 200+ active business customers to map operational pain points and workflow bottlenecks.</li>
+            <li>Benchmarked 10 competing ERP and accounting solutions, surfacing capability gaps and collaboration feature opportunities.</li>
+            <li>Synthesized customer insights into 6 user personas, 12 critical use cases, and 10 interactive wireframes addressing primary journeys and exception scenarios.</li>
           </ul>
 
           <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder dark:border-[#2A322F] text-xs text-softOlive dark:text-[#9FA8A3] uppercase tracking-wider font-semibold">
             <span>Product Discovery</span> &bull; 
             <span>TallyPrime 4.0</span> &bull; 
-            <span>Persona Mapping</span> &bull; 
+            <span>Customer Interviews</span> &bull; 
+            <span>Competitive Analysis</span> &bull; 
             <span>Wireframing</span>
           </div>
         </article>
 
-        <!-- Experience 3: Cognizant -->
+        <!-- Experience 3: Cognizant (2 yrs 5 mos) -->
         <article class="card-float border border-sandBorder dark:border-[#2A322F] rounded-2xl bg-warmCard dark:bg-[#1B201E] p-8 sm:p-10 hover:border-darkCharcoal/30">
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-sandBorder dark:border-[#2A322F] pb-5 mb-6">
             <div>
-              <span class="text-xs uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">August 2021 &ndash; May 2023</span>
+              <span class="text-xs uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">Jan 2021 &ndash; May 2023 &bull; 2 yrs 5 mos</span>
               <h3 class="text-2xl sm:text-3xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] mt-1 tracking-tight">Cognizant</h3>
             </div>
-            <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent mt-1 sm:mt-0">Junior Software Engineer</span>
+            <div class="text-left sm:text-right">
+              <span class="text-xs uppercase tracking-widest font-semibold text-sageAccent block">Junior Software Engineer</span>
+              <span class="text-[10px] text-softOlive dark:text-[#9FA8A3]">Promoted from Programmer Analyst Trainee</span>
+            </div>
           </div>
 
           <p class="text-base text-darkCharcoal/85 dark:text-[#E6E8E5]/85 leading-relaxed mb-6 font-normal">
-            Engineered backend microservices, REST APIs, and modernization pipelines for enterprise US insurance platforms.
+            Engineered backend microservices, REST APIs, and database components for US-based enterprise insurance clients, establishing a rigorous architectural foundation for technical BA workflows.
           </p>
           <ul class="space-y-3 text-sm text-darkCharcoal/80 dark:text-[#E6E8E5]/80 mb-6 border-l-2 border-sandBorder dark:border-[#2A322F] pl-5 font-normal">
-            <li>Developed backend microservices and RESTful APIs using Java, Spring Boot, and SQL within an Agile delivery pod.</li>
-            <li>Refactored monolithic legacy components into decoupled microservices, enabling the decommissioning of redundant databases and streamlining data flow.</li>
-            <li>Conducted root-cause log and incident triage across production systems, eliminating systemic logic defects and maintaining 98%+ SLA compliance.</li>
-            <li>Recognized multiple times by project leadership for delivery velocity and architectural defect prevention.</li>
+            <li>Developed backend microservices and RESTful APIs using Java, Spring Boot, and SQL within an Agile engineering team.</li>
+            <li>Refactored legacy system components into microservices, enabling the decommissioning of redundant databases and enhancing system maintainability.</li>
+            <li>Analyzed ticket trends to eliminate root-cause defects across production support workflows; recognized twice by project leadership for delivery impact.</li>
+            <li>Built an architectural understanding of system design, databases, and APIs that directly informs technical requirement specs and developer collaboration.</li>
           </ul>
 
           <div class="flex flex-wrap gap-2 pt-4 border-t border-sandBorder dark:border-[#2A322F] text-xs text-softOlive dark:text-[#9FA8A3] uppercase tracking-wider font-semibold">
-            <span>Java & Spring Boot</span> &bull; 
+            <span>Java &amp; Spring Boot</span> &bull; 
             <span>Microservices</span> &bull; 
             <span>REST APIs</span> &bull; 
-            <span>SQL</span>
+            <span>SQL</span> &bull; 
+            <span>System Design</span>
           </div>
         </article>
 
       </div>
     </section>
 
-   <!-- ================= SECTION 4: CREDENTIALS & PEDIGREE ================= -->
+    <!-- ================= SECTION 3.5: CAPABILITIES MATRIX ================= -->
+    <section id="skills" class="focus-section scroll-mt-16 py-24 border-b border-sandBorder dark:border-[#2A322F]">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8">
+        <div>
+          <span class="text-[11px] uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold block mb-1.5">// CAPABILITIES MATRIX</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight">Core Competencies &amp; Tech Stack</h2>
+        </div>
+        <span class="text-[11px] uppercase tracking-widest text-softOlive dark:text-[#9FA8A3] font-semibold">[ 05 — Skills ]</span>
+      </div>
+
+      <!-- Single Cohesive Ledger Container (Matches Roadmap & Dossier) -->
+      <div class="bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-3xl p-6 sm:p-10 shadow-sm">
+        
+        <div class="rv-f-paper mb-6">Enterprise Architecture &bull; Skill Inventory</div>
+        
+        <div class="divide-y divide-sandBorder dark:divide-[#2A322F]">
+          
+          <!-- Row 1: Product & Business Analysis -->
+          <div class="py-7 first:pt-2 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+            <div class="md:col-span-4">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-sageAccent font-bold">01 / Functional</span>
+              <h3 class="text-base sm:text-lg font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-0.5">
+                Product &amp; Business Analysis
+              </h3>
+              <p class="text-xs text-softOlive dark:text-[#9FA8A3] mt-1 leading-relaxed font-normal">
+                Requirements gathering, user story authoring, persona design, and UAT validation.
+              </p>
+            </div>
+            <div class="md:col-span-8 flex flex-wrap gap-2 pt-1">
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Requirements Architecture</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Product Strategy</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">User Stories &amp; 200+ AC</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Persona Mapping (6 Personas)</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Figma Wireframing</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">UAT &amp; PO Sign-Offs (100+ Stories)</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Customer Discovery (200+ Interviews)</span>
+            </div>
+          </div>
+
+          <!-- Row 2: Digital Commerce & MarTech -->
+          <div class="py-7 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+            <div class="md:col-span-4">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-sageAccent font-bold">02 / Platforms</span>
+              <h3 class="text-base sm:text-lg font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-0.5">
+                Digital Commerce &amp; MarTech
+              </h3>
+              <p class="text-xs text-softOlive dark:text-[#9FA8A3] mt-1 leading-relaxed font-normal">
+                Enterprise content management, headless storefronts, and e-commerce ecosystems.
+              </p>
+            </div>
+            <div class="md:col-span-8 flex flex-wrap gap-2 pt-1">
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Adobe Experience Manager (AEM)</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">AEM Edge Delivery Services (EDS)</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Adobe Commerce (Magento)</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">SAP Hybris</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">SAP Marketing Cloud</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">WCAG 2.1 Accessibility</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">TallyPrime 4.0</span>
+            </div>
+          </div>
+
+          <!-- Row 3: Agile Leadership & Delivery Governance -->
+          <div class="py-7 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+            <div class="md:col-span-4">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-sageAccent font-bold">03 / Governance</span>
+              <h3 class="text-base sm:text-lg font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-0.5">
+                Agile Leadership &amp; Governance
+              </h3>
+              <p class="text-xs text-softOlive dark:text-[#9FA8A3] mt-1 leading-relaxed font-normal">
+                Multi-squad backlog ownership, ceremony facilitation, and stakeholder delivery.
+              </p>
+            </div>
+            <div class="md:col-span-8 flex flex-wrap gap-2 pt-1">
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Scrum Leadership</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">100+ Item Backlog Grooming</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Sprint Planning &amp; LoE Estimation</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Jira &amp; Confluence</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Azure DevOps</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Stakeholder Alignment</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Sprint-End Client Demos</span>
+            </div>
+          </div>
+
+          <!-- Row 4: Engineering, Data & Agentic AI -->
+          <div class="py-7 last:pb-2 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+            <div class="md:col-span-4">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-sageAccent font-bold">04 / Technology</span>
+              <h3 class="text-base sm:text-lg font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight mt-0.5">
+                Engineering, Data &amp; AI
+              </h3>
+              <p class="text-xs text-softOlive dark:text-[#9FA8A3] mt-1 leading-relaxed font-normal">
+                Former Java software engineer foundation applied to APIs, data models, and enterprise AI.
+              </p>
+            </div>
+            <div class="md:col-span-8 flex flex-wrap gap-2 pt-1">
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Reinvention with Agentic AI</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Generative AI Enterprise Practice</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Java &amp; Spring Boot</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Microservices Architecture</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">REST APIs &amp; Socket Telemetry</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">SQL &amp; Data Modeling</span>
+              <span class="px-3 py-1.5 rounded-lg bg-linen dark:bg-[#121514] border border-sandBorder dark:border-[#2A322F] text-xs font-semibold text-darkCharcoal/90 dark:text-[#E6E8E5]/90">Python &amp; Pandas</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: CREDENTIALS & PEDIGREE ================= -->
     <section id="pedigree" class="focus-section scroll-mt-16 py-24 border-b border-sandBorder dark:border-[#2A322F]">
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12">
         <div>
@@ -758,17 +852,17 @@
           </h2>
         </div>
         <span class="text-[11px] uppercase tracking-widest text-softOlive dark:text-[#9FA8A3] font-semibold">
-          [ 05 — Education ]
+          [ 06 — Education ]
         </span>
       </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         <!-- Card 1: GIM -->
         <div class="card-float p-6 rounded-xl border border-sandBorder dark:border-[#2A322F] bg-warmCard dark:bg-[#1B201E] flex items-start justify-between">
           <div>
             <span class="text-[10px] uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">Goa Institute of Management (GIM)</span>
             <h4 class="text-lg font-bold text-darkCharcoal dark:text-[#E6E8E5] mt-1">Post Graduate Diploma in Management</h4>
-            <p class="text-xs text-softOlive dark:text-[#9FA8A3] mt-1 font-normal">Strategy, Product Management & Business Analysis</p>
+            <p class="text-xs text-softOlive dark:text-[#9FA8A3] mt-1 font-normal">Strategy, Product Management &amp; Business Analysis</p>
           </div>
         </div>
 
@@ -776,8 +870,8 @@
         <div class="card-float p-6 rounded-xl border border-sandBorder dark:border-[#2A322F] bg-warmCard dark:bg-[#1B201E] flex items-start justify-between">
           <div>
             <span class="text-[10px] uppercase tracking-widest text-mutedBrown dark:text-[#9FA8A3] font-bold">Techno Main Salt Lake</span>
-            <h4 class="text-lg font-bold text-darkCharcoal dark:text-[#E6E8E5] mt-1">B.Tech in Electronics & Communication</h4>
-            <p class="text-xs text-softOlive dark:text-[#9FA8A3] mt-1 font-normal">Foundational Computation, Digital Systems & Logic Design</p>
+            <h4 class="text-lg font-bold text-darkCharcoal dark:text-[#E6E8E5] mt-1">B.Tech in Electronics &amp; Communication</h4>
+            <p class="text-xs text-softOlive dark:text-[#9FA8A3] mt-1 font-normal">Foundational Computation, Digital Systems &amp; Logic Design</p>
           </div>
         </div>
       
@@ -802,12 +896,13 @@
         </div>
 
       </div>
-     </section>
+    </section>
+
     <!-- ================= SECTION 5.5: CURRICULUM VITAE (CV) ================= -->
     <section id="cv" class="focus-section py-24 border-b border-sandBorder dark:border-[#2A322F]">
       <div class="flex items-baseline justify-between mb-16">
         <h2 class="text-2xl sm:text-4xl font-extrabold text-darkCharcoal dark:text-[#E6E8E5] tracking-tight">Curriculum Vitae</h2>
-        <span class="text-[11px] uppercase tracking-widest text-softOlive dark:text-[#9FA8A3] font-semibold">[ 06 — CV ]</span>
+        <span class="text-[11px] uppercase tracking-widest text-softOlive dark:text-[#9FA8A3] font-semibold">[ 07 — CV ]</span>
       </div>
 
       <div class="card-float bg-warmCard dark:bg-[#1B201E] border border-sandBorder dark:border-[#2A322F] rounded-2xl p-8 sm:p-12 text-center max-w-2xl mx-auto">
@@ -861,19 +956,20 @@
 
   </main>
 
-  <!-- Scripts: Navigation, Theme Toggle, Smooth Car Driving Animation & Large Spline Area Plots Accordion -->
+  <!-- Scripts: Navigation, Theme Toggle, Smooth Car Driving Animation -->
   <script>
     // Theme Toggle Functionality
     function toggleDarkMode() {
       const html = document.documentElement;
       const isDark = html.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      
     }
 
     // Smooth Car Driving Animation along the Highway (Desktop Only)
+    let activeRoadmapIndex = 0;
     function driveCarTo(index, element) {
-      if (window.innerWidth < 1024) return; // Skip on mobile view
+      activeRoadmapIndex = index;
+      if (window.innerWidth < 1024) return;
       const car = document.getElementById('highway-car');
       if (!car || !element) return;
 
@@ -884,6 +980,13 @@
       car.style.left = `${targetPos}px`;
     }
 
+    // Window resize listener to keep highway car positioned correctly
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        const activeNode = document.querySelectorAll('.roadmap-node')[activeRoadmapIndex];
+        if (activeNode) driveCarTo(activeRoadmapIndex, activeNode);
+      }
+    });
 
     // Initialize car position on load at the first node (Desktop Only)
     document.addEventListener('DOMContentLoaded', () => {
@@ -906,25 +1009,25 @@
       }
     });
 
-    // Mobile Menu Toggle Logic
+    // Mobile Menu Toggle Logic with Icon Flip
     function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.getElementById('menuToggleBtn');
-  const hamburgerIcon = document.getElementById('hamburgerIcon');
-  const closeIcon = document.getElementById('closeIcon');
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('menuToggleBtn');
+      const hamburgerIcon = document.getElementById('hamburgerIcon');
+      const closeIcon = document.getElementById('closeIcon');
 
-  if (!menu) return;
+      if (!menu) return;
 
-  const isOpening = menu.classList.contains('hidden');
-  menu.classList.toggle('hidden');
+      const isOpening = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
 
-  if (btn) btn.setAttribute('aria-expanded', isOpening);
+      if (btn) btn.setAttribute('aria-expanded', isOpening);
 
-  if (hamburgerIcon && closeIcon) {
-    hamburgerIcon.classList.toggle('hidden', isOpening);
-    closeIcon.classList.toggle('hidden', !isOpening);
-  }
-}
+      if (hamburgerIcon && closeIcon) {
+        hamburgerIcon.classList.toggle('hidden', isOpening);
+        closeIcon.classList.toggle('hidden', !isOpening);
+      }
+    }
 
     // Image fallback sequence
     function handleImageFallback(img) {
